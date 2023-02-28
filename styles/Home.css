@@ -1,0 +1,35 @@
+.light-bg {
+  background: #fafafa;
+}
+#body {
+  padding-top: 60px;
+}
+.top-header {
+  height: 60px;
+  background: #8bc34a;
+}
+#homeSlider {
+  width: 100%;
+}
+.slide-text {
+  color: #8bc34a;
+  line-height: 1.5;
+}
+#homeSlider .carousel-item img {
+  height: 50vh;
+  margin: 0 auto;
+  display: inherit;
+}
+a, a:active, a:focus, a:hover, a:visited {
+  outline: 0;
+}
+.btn-warning {
+  background: #f9a825;
+  border-color: #f9a825;
+  color: #fff;
+}
+.rtr-btn {
+  box-shadow: 0 5px 0 #ccc;
+  border-radius: 10px;
+  padding: 12px 18px;
+}
