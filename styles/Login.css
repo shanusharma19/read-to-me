@@ -1,0 +1,168 @@
+input[id="studentLogin_userPhone"] {
+    padding-left: 74px;
+}
+.light-bg {
+    background: #fafafa;
+}
+#body {
+    padding-top: 60px;
+}
+.top-header {
+    height: 60px;
+    background: #8bc34a;
+}
+a, a:active, a:focus, a:hover, a:visited {
+    outline: 0;
+}
+.back-arrow-holder {
+    position: fixed;
+    top: 0;
+    left: 10px;
+    z-index: 1031;
+    height: 60px;
+    line-height: 60px;
+    display: grid;
+    align-items: center;
+}
+.img-vh-36 {
+    height: 36vh;
+    width: auto;
+}
+.rtr-form .form-group label {
+    color: #212121;
+    margin-bottom: 0.3rem;
+}
+.intl-tel-input {
+    position: relative;
+    display: inline-block;
+}
+.intl-tel-input {
+    width: 100%;
+}
+.intl-tel-input.separate-dial-code .flag-container {
+    height: 36px!important;
+}
+.intl-tel-input.allow-dropdown .flag-container, .intl-tel-input.separate-dial-code .flag-container {
+    right: auto;
+    left: 0;
+}
+.intl-tel-input .flag-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    padding: 1px;
+}
+.intl-tel-input * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.intl-tel-input .selected-flag {
+    z-index: 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: inherit;
+    padding: 0 6px 0 8px;
+    background: #e0e0e0;
+}
+.intl-tel-input * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.iti-flag.in {
+    height: 14px;
+    background-position: -2413px 0;
+}
+
+.iti-flag {
+    background-image: url("https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/flags@2x.png");
+}
+.iti-flag {
+    height: 15px;
+    box-shadow: 0 0 1px 0 #888;
+    background-repeat: no-repeat;
+    background-color: #dbdbdb;
+    background-position: 20px 0;
+}
+.iti-flag {
+    background-size: 5652px 15px;
+}
+.iti-flag {
+    width: 20px;
+}
+.intl-tel-input * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.intl-tel-input.separate-dial-code .selected-dial-code {
+    margin-left: 6px;
+}
+.intl-tel-input * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.intl-tel-input.allow-dropdown input, .intl-tel-input.allow-dropdown input[type=tel], .intl-tel-input.allow-dropdown input[type=text], .intl-tel-input.separate-dial-code input, .intl-tel-input.separate-dial-code input[type=tel], .intl-tel-input.separate-dial-code input[type=text] {
+    padding-right: 6px;
+    padding-left: 90px!important;
+    margin-left: 0;
+}
+.intl-tel-input input, .intl-tel-input input[type=tel], .intl-tel-input input[type=text] {
+    position: relative;
+    z-index: 0;
+    margin-top: 0!important;
+    margin-bottom: 0!important;
+    padding-right: 36px;
+    margin-right: 0;
+}
+.intl-tel-input * {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+.form-control {
+    background: #fafafa;
+}
+.rtr-form .form-group label {
+    color: #212121;
+    margin-bottom: 0.3rem;
+}
+.form-control {
+    background: #fafafa;
+}
+.rtr-form .form-group label {
+    color: #212121;
+    margin-bottom: 0.3rem;
+}
+.icon-btn {
+    line-height: 1;
+}
+.btn-success {
+    background: #8bc34a;
+    border-color: #8bc34a;
+    color: #fff;
+}
+.rtr-btn {
+    box-shadow: 0 5px 0 #ccc;
+    border-radius: 10px;
+    padding: 12px 18px;
+}
+.icon-btn {
+    line-height: 1;
+}
+.btn-success {
+    background: #8bc34a;
+    border-color: #8bc34a;
+    color: #fff;
+}
+.errormessage {
+    font-size: 85%;
+    color: red;
+    display: block;
+    padding: 0 5px;
+    text-align: left;
+    text-transform: none;
+}
+.rtr-form .form-group label {
+    color: #212121;
+    margin-bottom: 0.3rem;
+}
