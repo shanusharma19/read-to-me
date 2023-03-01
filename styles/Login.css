@@ -159,7 +159,7 @@ a, a:active, a:focus, a:hover, a:visited {
     color: red;
     display: block;
     padding: 0 5px;
-    text-align: left;
+    /* text-align: left; */
     text-transform: none;
 }
 .rtr-form .form-group label {

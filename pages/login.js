@@ -1,4 +1,31 @@
+import React, { useEffect, useState } from "react";
+import {validateEmail, phonenumber} from '../utils/validate.js'
+
 export default function login() {
+  const [Phone, setPhone] = useState("");
+  const [Email, setEmail] = useState("");
+  const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleSignup = async () => {
+
+    if (submitButtonDisabled) return;
+    if (Email===""&&Phone==="") {
+      setErrorMsg("Please enter your mobile number or email to continue");
+      return;
+    }
+    if (!validateEmail(Email)&&Phone==="") {
+      setErrorMsg("Email is not valid");
+      return;
+    }
+    if (!phonenumber(Phone)&&Email==="") {
+      setErrorMsg("Phone number is not valid");
+      return;
+    }
+    setErrorMsg("");
+    setSubmitButtonDisabled(true);
+  };
+
   return (
     <>
       <div
@@ -36,11 +63,11 @@ export default function login() {
           <div className="row">
             <div className="col">
               <form
-                autocomplete="off"
+                autoComplete="off"
                 id="studentLogin"
                 name="studentLogin"
                 className="px-3 rtr-form"
-                novalidate="novalidate"
+                noValidate="novalidate"
               >
                 <div
                   className="form-group mobile-holder aos-init aos-animate"
@@ -68,9 +95,15 @@ export default function login() {
                       aria-describedby="PhoneHelp"
                       placeholder="Enter your mobile number"
                       data-countrycode="+91"
-                      autocomplete="off"
+                      autoComplete="off"
                       role="presentation"
                       data-intl-tel-input-id="0"
+                      disabled={Email!=="" && true}
+                      onChange={(event) =>{
+                        setPhone(event.target.value);
+                        setSubmitButtonDisabled(false);
+                      }
+                    }
                     />
                   </div>
                   <input
@@ -105,7 +138,6 @@ export default function login() {
                   data-aos-delay="150"
                 >
                   <label htmlFor="studentLogin_userMailId" className="w-100">
-                    Email address{" "}
                     <input
                       role="presentation"
                       type="text"
@@ -114,7 +146,13 @@ export default function login() {
                       id="studentLogin_userMailId"
                       aria-describedby="emailHelp"
                       placeholder="Enter your email address"
-                      autocomplete="off"
+                      autoComplete="off"
+                      disabled={Phone!=="" && true}
+                      onChange={(event) =>{
+                        setEmail(event.target.value);
+                        setSubmitButtonDisabled(false);
+                      }
+                      }
                     />
                   </label>
                 </div>
@@ -124,10 +162,13 @@ export default function login() {
                   data-aos-delay="200"
                   data-aos-offset="0"
                 >
+                  {errorMsg && <p className="errormessage" >{errorMsg}</p>}
                   <button
                     type="button"
-                    className="btn btn-success btn-lg rtr-btn icon-btn px-5 "
+                    className="btn btn-success btn-lg rtr-btn icon-btn px-5"
                     id="studentLoginsubmit"
+                    onClick={handleSignup}
+                    disabled={submitButtonDisabled}
                   >
                     <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/right-arrow.svg" />
                   </button>
