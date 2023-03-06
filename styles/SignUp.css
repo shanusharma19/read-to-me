@@ -1,0 +1,18 @@
+.border-partnerCode {
+    border: 1px solid red !important;
+  }
+#studentSignup_userPhone{
+    padding-left: 6px;
+}
+#partnerCodeContainer{
+    display: block;
+}
+.color-green, .green-color {
+    color: #8bc34a;
+}
+.color-red {
+    color: #e65100;
+}
+.back-arrow-holder{
+  cursor: pointer;
+}

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import {validateEmail, phonenumber} from '../utils/validate.js'
+import Header from "../components/Header.js";
 
 export default function login() {
   const [Phone, setPhone] = useState("");
@@ -7,7 +8,7 @@ export default function login() {
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSignup = async () => {
+  const handleLogin = async () => {
 
     if (submitButtonDisabled) return;
     if (Email===""&&Phone==="") {
@@ -35,13 +36,7 @@ export default function login() {
         data-aos-duration="400"
         data-aos-delay="0"
       >
-        <div className="container-fluid fixed-top web-header">
-          <div className="row top-header align-items-center justify-content-center">
-            <div className="col">
-              <h4 className="m-0 text-center text-white">ReadToMe</h4>
-            </div>
-          </div>
-        </div>
+        <Header />
 
         <a className="back-arrow-holder" href="/">
           <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg" />
@@ -167,7 +162,7 @@ export default function login() {
                     type="button"
                     className="btn btn-success btn-lg rtr-btn icon-btn px-5"
                     id="studentLoginsubmit"
-                    onClick={handleSignup}
+                    onClick={handleLogin}
                     disabled={submitButtonDisabled}
                   >
                     <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/right-arrow.svg" />
