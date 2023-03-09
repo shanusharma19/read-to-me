@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import {validateEmail, phonenumber} from '../utils/validate.js'
 
-const Modal = ({setToggle}) => {
+const Modal = ({setToggle, setFilter}) => {
 
   const [Phone, setPhone] = useState("");
   const [Email, setEmail] = useState("");
@@ -45,7 +45,10 @@ const Modal = ({setToggle}) => {
               className="close sticky-close"
               data-dismiss="modal"
               aria-label="Close"
-              onClick={()=>setToggle(false)}
+              onClick={()=>{
+                setToggle(false)
+                setFilter('brightness(100%)')
+              }}
             >
               <span aria-hidden="true">×</span>
             </button>

@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 
 export default function loginPassword() {
   const router = useRouter();
+  const [Filter, setFilter] = useState('brightness(100%)');
   const [Toggle, setToggle] = useState(false);
   const [Password, setPassword] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
@@ -29,16 +30,18 @@ export default function loginPassword() {
 
   return (
     <>
+    {Toggle && <Modal setFilter={setFilter} setToggle={setToggle}/>}
       <div
-        id="body"
+        id="body1"
         className="bod"
         className="light-bg position-relative"
         data-aos-easing="ease"
         data-aos-duration="400"
         data-aos-delay="0"
+        style={{'filter': Filter}}
       >
         <Header />
-        {Toggle && <Modal setToggle={setToggle}/>}
+        
         <span className="back-arrow-holder" onClick={() => router.back()}>
           <img
             src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg"
@@ -52,7 +55,7 @@ export default function loginPassword() {
             data-aos="fade-up"
             data-aos-delay="50"
           >
-            <div className="col text-center">
+            <div id="extra" className="col text-center">
               <img
                 src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/password-img.svg"
                 className="img-vh-36"
@@ -125,7 +128,10 @@ export default function loginPassword() {
                   {errorMsg && <p className="errormessage">{errorMsg}</p>}
                 </div>
 
-                <p className="text-right text-blue" onClick={()=>setToggle(true)}>
+                <p className="text-right text-blue" onClick={()=>{
+                  setFilter('brightness(50%)')
+                  setToggle(true)
+                  }}>
                   <span data-toggle="modal" data-target="#forgotPasswordModal">
                     Forgot Password?
                   </span>

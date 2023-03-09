@@ -1,0 +1,39 @@
+a, a:active, a:focus, a:hover, a:visited {
+    outline: 0;
+}
+.help-icon-holder {
+    position: fixed;
+    top: 0;
+    right: 10px;
+    z-index: 1031;
+    height: 60px;
+    line-height: 60px;
+    display: grid;
+    align-items: center;
+}
+.points-icon-holder {
+    position: fixed;
+    top: 0;
+    right: 45px;
+    z-index: 1031;
+    height: 60px;
+    line-height: 60px;
+    display: grid;
+    align-items: center;
+}
+#changeAvatar {
+    max-width: 80px;
+}
+.color-green, .green-color {
+    color: #8bc34a;
+}
+.text-ellipsis {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+.opacity-point-8 {
+    opacity: .8;
+}
+.img-grayscale {
+    filter: grayscale(100%);
+}
