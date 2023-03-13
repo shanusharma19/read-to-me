@@ -4,7 +4,6 @@ import groovyWalkAnimation from "../animations/star.json";
 import medalAnimation from "../animations/medal.json";
 import Link from "next/link";
 import Header from "./Header.js";
-import Notification from "./Notification.js";
 import HelpIcon from "./HelpIcon";
 
 const DashboardUserDetails = ({setNotify}) => {

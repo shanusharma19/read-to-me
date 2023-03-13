@@ -113,25 +113,78 @@ option {
 .bg-orange {
   background: #f9a825;
 }
-/* #studentEditUdise_updateUdise::placeholder {
-  overflow: hidden;
-  white-space: nowrap;
-  border-right: 2px solid;
-  width: 0;
-  animation: typing;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-timing-function: steps(30, end);
-  animation-fill-mode: forwards;
+.dashboard-card {
+  border-radius: 10px;
+  padding: 0 15px;
+  background: url("https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/rtm-card-bg.svg")
+    0 0 no-repeat #ffb030;
+  background-size: 56%;
 }
-@keyframes typing {
+.overflow-x-hidden {
+  overflow-x: hidden;
+}
+.dashboard-card-row {
+  position: relative;
+}
+.inner-tile {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.dashboard-tile-text {
+  font-size: 1.1rem;
+  margin-left: 6px;
+  font-weight: 500;
+}
+.pulse {
+  animation: pulse-animation 5s infinite;
+}
+@keyframes pulse-animation {
   0% {
-    width: 0;
+      box-shadow: 0 0 0 0 rgba(255,255,255,.6)
   }
-  50% {
-    width: 100%;
+
+  20% {
+      box-shadow: 0 0 0 40px rgba(255,255,255,0)
   }
+
   100% {
-    width: 0;
+      box-shadow: 0 0 0 80px rgba(255,255,255,0)
   }
-} */
+}
+.card-arrow-holder {
+  border: solid 12px rgba(255,255,255,.4);
+}
+.card-arrow {
+  width: 4.2em;
+  height: 4.2em;
+  border: solid 12px rgba(255,255,255,.2);
+}
+.contest-card {
+  border-radius: 10px;
+  padding: 0 15px;
+  background: url("https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/contest-bg.svg") 0 0 no-repeat #8f15c2;
+  background-size: cover;
+  max-height: 75px;
+  display: table;
+  overflow: hidden;
+  align-items: center;
+  width: 100%;
+}
+.dashboard-tile-text {
+  font-size: 1.1rem;
+  margin-left: 6px;
+  font-weight: 500;
+}
+.revise-your-chapter h6 {
+  display: flex;
+  flex-direction: row;
+  color: #8bc34a;
+}
+.revise-your-chapter h6:after, .revise-your-chapter h6:before {
+  content: "";
+  flex: 1 1;
+  border-bottom: 2px solid #8bc34a;
+  margin: auto;
+  margin-right: 5px;
+  margin-left: 5px;
+}

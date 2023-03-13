@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-
-const MyDashboardContent = () => {
-
+import Lottie from "lottie-react";
+import Trophy from "../animations/trophy.json";
+const DashboardContent = () => {
   return (
     <>
       <div id="scrollContainer" style={{ marginTop: "54px" }}>
@@ -175,9 +175,91 @@ const MyDashboardContent = () => {
               </form>
             </div>
           </div>
+          <div
+            className="row aos-init aos-animate"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div className="col-12 px-2">
+              <div className="dashboard-card shadow my-3">
+                <div
+                  className="row dashboard-card-row overflow-x-hidden py-3"
+                  id="launchReadToMe"
+                >
+                  <div className="col-9 d-inline-flex inner-tile pr-0 pl-2">
+                    <img
+                      src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/launch-rtm.svg"
+                      alt=""
+                    />
+                    <span className="dashboard-tile-text align-self-center text-white">
+                      Read Your School Textbooks
+                    </span>
+                  </div>
+                  <div className="col-3 d-flex align-items-center justify-content-center">
+                    <span className="pulse m-0 d-flex align-items-center justify-content-center rounded-circle card-arrow-holder">
+                      <span className="pulse card-arrow p-3 rounded-circle text-white d-flex align-items-center justify-content-center">
+                        <img
+                          src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/right-angle-white.svg"
+                          alt=""
+                        />
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="container-fluid pb-5 px-0">
+            <div
+              className="row aos-init aos-animate"
+              data-aos="fade-up"
+              data-aos-delay="200"
+            >
+              <div className="col-12 px-2 mb-3">
+                <div className="contest-card shadow my-1">
+                  <div
+                    className="row dashboard-card-row overflow-x-hidden py-0"
+                    id="contestCard"
+                    data-url="contests"
+                  >
+                    <div className="col-9 d-inline-flex inner-tile pr-0 pl-2 py-0">
+                      <Lottie
+                        style={{ width: "65px" }}
+                        animationData={Trophy}
+                        loop={true}
+                      ></Lottie>
+                      <span className="dashboard-tile-text align-self-center text-white">
+                        Contests - Learn &amp; Win
+                      </span>
+                    </div>
+                    <div className="col-3 d-flex align-items-center justify-content-center">
+                      <span className="pulse m-0 d-flex align-items-center justify-content-center rounded-circle card-arrow-holder">
+                        <span className="pulse card-arrow p-3 rounded-circle text-white d-flex align-items-center justify-content-center">
+                          <img
+                            src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/right-angle-white.svg"
+                            alt=""
+                          />
+                        </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row"></div>
+          <div
+            class="row aos-init aos-animate"
+            data-aos="fade-up"
+            data-aos-delay="300"
+          >
+            <div class="col-12 px-2 py-3 revise-your-chapter">
+              <h6> REVISE YOUR CHAPTERS </h6>
+            </div>
+          </div>
         </div>
       </div>
     </>
   );
 };
-export default MyDashboardContent;
+export default DashboardContent;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Lottie from "lottie-react";
 import Link from "next/link";
 import DashboardUserDetails from "../components/DashboardUserDetails";
-import MyDashboardContent from "../components/MyDashboardContent";
+import DashboardContent from "../components/DashboardContent";
 import Notification from "../components/Notification.js";
 
 export default function learningChannel() {
@@ -14,7 +14,7 @@ export default function learningChannel() {
       ) : (
         <>
           <DashboardUserDetails setNotify={setNotify}/>
-          <MyDashboardContent />
+          <DashboardContent />
         </>
       )}
     </>
