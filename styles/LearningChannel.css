@@ -188,3 +188,24 @@ option {
   margin-right: 5px;
   margin-left: 5px;
 }
+
+.owl-stage {
+  left: -25px;
+}
+.owl-stage {
+  display: flex;
+}
+.owl-item {
+  display: grid;
+}
+.reviseYourChapter .owl-card {
+  background: #03a9f4;
+}
+.topic-img-container {
+  position: relative;
+}
+.owl-card {
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #ccc;
+}

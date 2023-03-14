@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Lottie from "lottie-react";
 import Trophy from "../animations/trophy.json";
+import Link from "next/link";
 const DashboardContent = () => {
   return (
     <>
@@ -36,7 +37,7 @@ const DashboardContent = () => {
             data-aos-offset="0"
             data-aos-id="boardBlock"
           >
-            <div class="col pr-2">
+            <div className="col pr-2">
               <form
                 id="studentEditBoard"
                 name="studentEditBoard"
@@ -148,7 +149,7 @@ const DashboardContent = () => {
                 className="mb-0"
                 noValidate="novalidate"
               >
-                <div class="input-group">
+                <div className="input-group">
                   <input
                     autoComplete="off"
                     type="text"
@@ -160,7 +161,7 @@ const DashboardContent = () => {
                     aria-describedby="studentEditUdisesubmit"
                     placeholder="अपना स्कूल यूडीज़ कोड एंटर करें"
                   />
-                  <div class="input-group-append">
+                  <div className="input-group-append">
                     <span
                       className="input-group-text bg-orange rounded-right border border-success border-left-0"
                       id="studentEditUdisesubmit"
@@ -209,7 +210,7 @@ const DashboardContent = () => {
               </div>
             </div>
           </div>
-          <div className="container-fluid pb-5 px-0">
+          <div className="container-fluid px-0">
             <div
               className="row aos-init aos-animate"
               data-aos="fade-up"
@@ -247,14 +248,95 @@ const DashboardContent = () => {
               </div>
             </div>
           </div>
-          <div class="row"></div>
+          <div className="row"></div>
           <div
-            class="row aos-init aos-animate"
+            className="row aos-init aos-animate"
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <div class="col-12 px-2 py-3 revise-your-chapter">
+            <div className="col-12 px-2 py-3 revise-your-chapter">
               <h6> REVISE YOUR CHAPTERS </h6>
+            </div>
+          </div>
+          <div
+            className="row mb-3 aos-init aos-animate"
+            id="topic-0"
+            data-aos="fade-up"
+            data-aos-delay="350"
+          >
+            <div className="col-8 py-2 align-self-center mb-2">
+              <p className="font-weight-bolder m-0">Learn Grammar</p>
+            </div>
+            <div className="col-4 py-2 text-right align-self-center mb-2">
+              <Link
+                href="topic-view?topicId=1&amp;recordFrom=0"
+                className="btn btn-success rtr-btn px-2 py-1 text-decoration-none"
+              >
+                View All
+              </Link>
+            </div>
+            <div class="col">
+              <div class="reviseYourChapter owl-carousel upcommingClassCarousel owl-loaded owl-drag">
+                <div class="owl-stage-outer">
+                  <div
+                    class="owl-stage"
+                    style={{
+                      transform: "translate3d(0px, 0px, 0px)",
+                      transition: "all 0s ease 0s",
+                      width: "1782px",
+                      paddingLeft: "30px",
+                      paddingRight: "30px",
+                    }}
+                  >
+                    <div
+                      className="owl-item active"
+                      style={{ width: "272px", marginRight: "15px" }}
+                    >
+                      <div
+                        className="topic-img-container mb-2 owl-card overflow-hidden"
+                        id="lesson-0"
+                      >
+                        <a
+                          className="text-decoration-none d-block w-100 h-100 reviseYourChapter_uc"
+                          data-url="lesson-view?topicId=1&amp;recordFrom=0&amp;lesson=63"
+                        >
+                          <div className="">
+                            <div
+                              className="position-relative"
+                              data-topicindex=""
+                              data-categorytype=""
+                              data-topicid=""
+                              data-categoryid=""
+                              data-topicname=""
+                              data-postseqid=""
+                            >
+                              <img
+                                data-src="https://eb-prod-wpimage.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2021/05/07091211/Punctuations.jpg"
+                                alt=""
+                                className=" lazyloaded"
+                                src="https://eb-prod-wpimage.s3.ap-south-1.amazonaws.com/blog/wp-content/uploads/2021/05/07091211/Punctuations.jpg"
+                              />
+                            </div>
+                          </div>
+                          <div>
+                            <p
+                              className="text-center font-weight-bolder px-3 py-3 rounded-bottom"
+                              style={{
+                                background: "#03A9F4",
+                                color: "#FFF",
+                                bottom: "0",
+                                marginBottom: "0",
+                              }}
+                            >
+                              Punctuations
+                            </p>
+                          </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
