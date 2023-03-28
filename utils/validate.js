@@ -7,7 +7,7 @@ export const validateEmail = (email) => {
 };
 
 export const phonenumber = (inputtxt) => {
-  var phoneno = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+  var phoneno = /^[6-9]\d{9}$/;
   if(inputtxt.match(phoneno)) {
     return true;
   }

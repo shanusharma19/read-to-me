@@ -5,6 +5,9 @@ a:hover,
 a:visited {
   outline: 0;
 }
+/* #learn{
+  filter: brightness(50%);
+} */
 .help-icon-holder {
   position: fixed;
   top: 0;

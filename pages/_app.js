@@ -10,6 +10,7 @@ import '@/styles/Login.css'
 import '@/styles/SignUp.css'
 import '@/styles/LoginPassword.css'
 import '@/styles/LearningChannel.css'
+import '@/styles/Avatar.css'
 import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {

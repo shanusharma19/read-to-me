@@ -1,0 +1,55 @@
+.modal-content {
+    border-radius: 10px;
+}
+.close-popup-btn {
+    z-index: 999;
+}
+.sticky-close {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    opacity: 1;
+    background: #424242!important;
+    color: #fff;
+    height: 35px;
+    width: 35px;
+    border-radius: 35px;
+}
+.sticky-close span {
+    position: relative;
+    top: -3px;
+}
+.color-green, .green-color {
+    color: #8bc34a;
+}
+#avatars {
+    max-height: 65vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+.avatars>input {
+    display: none;
+}
+.avatars>input+img {
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+.btn-success {
+    background: #8bc34a;
+    border-color: #8bc34a;
+    color: #fff;
+}
+.rtr-btn {
+    box-shadow: 0 5px 0 #ccc;
+    border-radius: 10px;
+    padding: 12px 18px;
+}
+.avatars>input:checked+img {
+    outline: 4px solid #8bc34a;
+    border-radius: 50%;
+    transition: outline-width .2s linear;
+}
+.avatars>input+img {
+    cursor: pointer;
+    border: 2px solid transparent;
+}
