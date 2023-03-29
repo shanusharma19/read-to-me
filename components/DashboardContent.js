@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Lottie from "lottie-react";
 import Trophy from "../animations/trophy.json";
 import Link from "next/link";
+import BottomNav from "./BottomNav";
 const DashboardContent = () => {
   return (
     <>
@@ -341,6 +342,7 @@ const DashboardContent = () => {
           </div>
         </div>
       </div>
+      <BottomNav/>
     </>
   );
 };

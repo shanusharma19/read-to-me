@@ -1,0 +1,18 @@
+.bottom-nav {
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 0 4px #ccc;
+    z-index: 999;
+}
+.bottom-nav .active {
+    box-shadow: 5px 15px 20px #e3e3e3 inset;
+    border: 1px solid #e3e3e3;
+}
+.bottom-nav a {
+    padding: 5px;
+}
+.bottom-nav .small {
+    font-size: 11px;
+}
