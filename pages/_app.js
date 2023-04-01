@@ -12,6 +12,7 @@ import '@/styles/LoginPassword.css'
 import '@/styles/LearningChannel.css'
 import '@/styles/Avatar.css'
 import '@/styles/BottomNav.css'
+import '@/styles/Medals.css'
 import { useEffect } from "react";
 
 export default function App({ Component, pageProps }) {

@@ -6,36 +6,42 @@ import Link from "next/link";
 import Header from "./Header.js";
 import HelpIcon from "./HelpIcon";
 
-  const DashboardUserDetails = ({Profile, setFilter, setToggle, setNotify}) => {
-
+const DashboardUserDetails = ({
+  Profile,
+  setFilter,
+  setToggle,
+  setNotify,
+  setMedalComponent,
+  MedalComponent,
+}) => {
   return (
-    <>   
+    <>
       <div
         id="body"
         className="light-bg position-relative dash"
         data-aos-easing="ease"
         data-aos-duration="400"
         data-aos-delay="0"
-        style={{ paddingBottom: "75px"}}
-        
+        style={{ paddingBottom: "75px" }}
       >
         <Header />
-        <div
-          id="noti_Button"
-          className="back-arrow-holder"
-          onClick={() => {
-            setNotify(true);
-          }}
-        >
-          <img
-            src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/Group-4487.svg"
-            alt=""
-          />
-          <span className="badge bg-c-red"></span>
-        </div>
+        {!MedalComponent && (
+          <div
+            id="noti_Button"
+            className="back-arrow-holder"
+            onClick={() => {
+              setNotify(true);
+            }}
+          >
+            <img
+              src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/Group-4487.svg"
+              alt=""
+            />
+            <span className="badge bg-c-red"></span>
+          </div>
+        )}
 
         <HelpIcon />
-
         <div className="points-icon-holder " data-url="earn-points">
           <Lottie
             style={{ width: "25px", transform: "translateY(-5%)" }}
@@ -43,7 +49,6 @@ import HelpIcon from "./HelpIcon";
             loop={true}
           />
         </div>
-
         <div
           className="container-fluid green-gradient pt-3 pb-5 position-fixed"
           style={{
@@ -60,7 +65,7 @@ import HelpIcon from "./HelpIcon";
                   id="avtarPic"
                   alt=""
                   data-avatar="2.svg"
-                  src= {Profile}
+                  src={Profile}
                   className="rounded-circle border border-white w-100"
                   style={{ borderWidth: "3px !important" }}
                 />
@@ -130,6 +135,9 @@ import HelpIcon from "./HelpIcon";
                   id="medalIcon"
                   className="d-inline-flex opacity-point-8 img-grayscale"
                   style={{ transform: "translateX(27%)" }}
+                  onClick={() => {
+                    setMedalComponent(true);
+                  }}
                 >
                   <div className="row">
                     <div className="col-5 pr-0">

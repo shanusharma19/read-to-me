@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Crown from "../animations/crown.json";
 import Lottie from "lottie-react";
 
-const BottomNav = () => {
+const BottomNav = ({setMedalComponent}) => {
   const [Active, setActive] = useState();
   const [Select, setSelect] = useState();
   return (
@@ -15,6 +15,7 @@ const BottomNav = () => {
               onClick={() => {
                 setActive("active");
                 setSelect("1");
+                setMedalComponent(false);
               }}
               href="#"
               className={`d-flex flex-column align-items-center position-relative text-body bottomNavLink ${

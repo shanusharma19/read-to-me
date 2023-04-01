@@ -1,0 +1,17 @@
+.white-space-no-wrap {
+    white-space: nowrap;
+}
+.rounded-lg {
+    border-radius: 10px!important;
+}
+.bg-grey {
+    background: #a9a9a9;
+}
+
+.rounded-lg {
+    border-radius: 10px!important;
+}
+.top-radius-0 {
+    border-top-right-radius: 0!important;
+    border-top-left-radius: 0!important;
+}
