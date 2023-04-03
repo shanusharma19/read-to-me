@@ -10,7 +10,7 @@ export default function learningChannel() {
   const [Notify, setNotify] = useState(false);
   const [Filter, setFilter] = useState("brightness(100%)");
   const [Toggle, setToggle] = useState(false);
-  const [MedalComponent, setMedalComponent] = useState(false);
+  // const [MedalComponent, setMedalComponent] = useState(false);
   const [Profile, setProfile] = useState(
     "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/2.svg"
   );
@@ -36,13 +36,13 @@ export default function learningChannel() {
               setFilter={setFilter}
               setToggle={setToggle}
               setNotify={setNotify}
-              setMedalComponent={setMedalComponent}
-              MedalComponent={MedalComponent}
+              // setMedalComponent={setMedalComponent}
+              // MedalComponent={MedalComponent}
               Profile={Profile}
             />
             <DashboardContent
-              MedalComponent={MedalComponent}
-              setMedalComponent={setMedalComponent}
+              // MedalComponent={MedalComponent}
+              // setMedalComponent={setMedalComponent}
             />
           </>
         )}

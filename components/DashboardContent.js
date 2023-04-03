@@ -3,14 +3,17 @@ import Lottie from "lottie-react";
 import Trophy from "../animations/trophy.json";
 import Link from "next/link";
 import BottomNav from "./BottomNav";
-import Medals from "./Medals.js";
+import Medals from "../pages/medals.js";
 import Home from "./Home.js";
 
-const DashboardContent = ({setMedalComponent, MedalComponent }) => {
+const DashboardContent = (
+  // { setMedalComponent, MedalComponent }
+  ) => {
   return (
     <>
-      {MedalComponent ? <Medals /> : <Home />}
-      <BottomNav setMedalComponent={setMedalComponent}></BottomNav>
+      <Home />
+      {/* {MedalComponent ? <Medals /> : <Home />} */}
+      {/* <BottomNav setMedalComponent={setMedalComponent}></BottomNav> */}
     </>
   );
 };

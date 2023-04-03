@@ -11,8 +11,8 @@ const DashboardUserDetails = ({
   setFilter,
   setToggle,
   setNotify,
-  setMedalComponent,
-  MedalComponent,
+  // setMedalComponent,
+  // MedalComponent,
 }) => {
   return (
     <>
@@ -25,21 +25,21 @@ const DashboardUserDetails = ({
         style={{ paddingBottom: "75px" }}
       >
         <Header />
-        {!MedalComponent && (
-          <div
-            id="noti_Button"
-            className="back-arrow-holder"
-            onClick={() => {
-              setNotify(true);
-            }}
-          >
-            <img
-              src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/Group-4487.svg"
-              alt=""
-            />
-            <span className="badge bg-c-red"></span>
-          </div>
-        )}
+        {/* {!MedalComponent && ( */}
+        <div
+          id="noti_Button"
+          className="back-arrow-holder"
+          onClick={() => {
+            setNotify(true);
+          }}
+        >
+          <img
+            src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/Group-4487.svg"
+            alt=""
+          />
+          <span className="badge bg-c-red"></span>
+        </div>
+        {/* )} */}
 
         <HelpIcon />
         <div className="points-icon-holder " data-url="earn-points">
@@ -131,27 +131,30 @@ const DashboardUserDetails = ({
                     </div>
                   </div>
                 </div>
+
                 <div
                   id="medalIcon"
                   className="d-inline-flex opacity-point-8 img-grayscale"
                   style={{ transform: "translateX(27%)" }}
-                  onClick={() => {
-                    setMedalComponent(true);
-                  }}
+                  // onClick={() => {
+                  //   setMedalComponent(true);
+                  // }}
                 >
                   <div className="row">
                     <div className="col-5 pr-0">
-                      <div
-                        className=""
-                        data-url="medals"
-                        style={{ width: "100%", display: "inline-flex" }}
-                      >
-                        <Lottie
-                          style={{ width: "60px" }}
-                          animationData={medalAnimation}
-                          loop={true}
-                        />
-                      </div>
+                      <Link href="/medals">
+                        <div
+                          className=""
+                          data-url="medals"
+                          style={{ width: "100%", display: "inline-flex" }}
+                        >
+                          <Lottie
+                            style={{ width: "60px" }}
+                            animationData={medalAnimation}
+                            loop={true}
+                          />
+                        </div>
+                      </Link>
                     </div>
                     <div className="col pl-1">
                       <h5 className="mb-0">

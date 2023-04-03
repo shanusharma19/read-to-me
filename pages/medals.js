@@ -1,8 +1,24 @@
-import React from "react";
+import DashboardUserDetails from "@/components/DashboardUserDetails";
+import React,{useState} from "react";
 
-const Medals = () => {
+const medals = () => {
+  const [Notify, setNotify] = useState(false);
+  const [Filter, setFilter] = useState("brightness(100%)");
+  const [Toggle, setToggle] = useState(false);
+  const [MedalComponent, setMedalComponent] = useState(false);
+  const [Profile, setProfile] = useState(
+    "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/2.svg"
+  );
   return (
     <>
+      <DashboardUserDetails
+        setFilter={setFilter}
+        setToggle={setToggle}
+        setNotify={setNotify}
+        setMedalComponent={setMedalComponent}
+        MedalComponent={MedalComponent}
+        Profile={Profile}
+      ></DashboardUserDetails>
       <div
         id="scrollContainer"
         style={{ marginTop: "54px", paddingBottom: "40px" }}
@@ -143,4 +159,4 @@ const Medals = () => {
   );
 };
 
-export default Medals;
+export default medals;

@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import Crown from "../animations/crown.json";
 import Lottie from "lottie-react";
+import Link from "next/link";
 
-const BottomNav = ({setMedalComponent}) => {
+const BottomNav = () => {
   const [Active, setActive] = useState();
   const [Select, setSelect] = useState();
   return (
@@ -10,14 +11,14 @@ const BottomNav = ({setMedalComponent}) => {
       <div className="bottom-nav container-fluid">
         <div className="row">
           <div className="col text-center p-0">
-            <a
+            <Link
               style={{ textDecoration: "none" }}
               onClick={() => {
                 setActive("active");
                 setSelect("1");
-                setMedalComponent(false);
+                // setMedalComponent(false);
               }}
-              href="#"
+              href="/learningChannel"
               className={`d-flex flex-column align-items-center position-relative text-body bottomNavLink ${
                 Select == "1" ? Active : ""
               }`}
@@ -29,7 +30,7 @@ const BottomNav = ({setMedalComponent}) => {
                 style={{ height: "22px" }}
               />
               <p className="small m-0 mt-1 bottomNavText">My Dashboard</p>
-            </a>
+            </Link>
           </div>
           <div className="col text-center p-0">
             <a
@@ -76,7 +77,7 @@ const BottomNav = ({setMedalComponent}) => {
             </a>
           </div>
           <div className="col text-center p-0">
-            <a
+            <Link
               style={{ textDecoration: "none" }}
               onClick={() => {
                 setActive("active");
@@ -85,7 +86,7 @@ const BottomNav = ({setMedalComponent}) => {
               className={`d-flex flex-column align-items-center text-body position-relative bottomNavLink ${
                 Select == "4" ? Active : ""
               }`}
-              href="#"
+              href="/myPlans"
               id="myAccountNav"
             >
               <img
@@ -94,7 +95,7 @@ const BottomNav = ({setMedalComponent}) => {
                 style={{ height: "22px" }}
               />
               <p className="small m-0 mt-1 bottomNavText">My Account</p>
-            </a>
+            </Link>
           </div>
         </div>
       </div>
