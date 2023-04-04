@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
+import {useDispatch} from 'react-redux';
+import {PROFILE, TOGGLE, FILTER} from '../actions/learningPageActions.js'
 
-const Avatar = ({setProfile, setToggle, setFilter }) => {
-
+const Avatar = (
+  // {setProfile, setToggle, setFilter }
+  ) => {
+  const dispatch = useDispatch();
   const [Tick, setTick] = useState();
   const avatars = [
     {
@@ -91,9 +95,13 @@ const Avatar = ({setProfile, setToggle, setFilter }) => {
               data-action=""
               data-dismiss="modal"
               aria-label="Close"
+              // onClick={() => {
+              //   setToggle(false);
+              //   setFilter("brightness(100%)");
+              // }}
               onClick={() => {
-                setToggle(false);
-                setFilter("brightness(100%)");
+                dispatch(TOGGLE(false));
+                dispatch(FILTER("brightness(100%)"));
               }}
             >
               <span aria-hidden="true">×</span>
@@ -129,9 +137,9 @@ const Avatar = ({setProfile, setToggle, setFilter }) => {
                   data-action-btn=""
                   className="btn btn-success btn-lg rtr-btn mx-2 my-0 p-3 w-50"
                   onClick={()=> {
-                    Tick && setProfile(Tick)
-                    setToggle(false)
-                    setFilter("brightness(100%)")
+                    Tick && dispatch(PROFILE(Tick))
+                    dispatch(TOGGLE(false));
+                    dispatch(FILTER("brightness(100%)"))
                   }}
                 >
                   <h5 className="m-0">OK</h5>

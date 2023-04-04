@@ -14,7 +14,8 @@ import "@/styles/Avatar.css";
 import "@/styles/BottomNav.css";
 import "@/styles/Medals.css";
 import { useEffect } from "react";
-import BottomNav from "@/components/BottomNav.js";
+import { Provider } from "react-redux";
+import store from '../store.js'
 
 export default function App({ Component, pageProps }) {
   useEffect(() => {
@@ -27,8 +28,9 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Component {...pageProps} />
-      <BottomNav ></BottomNav>
+      <Provider store={store}>
+        <Component {...pageProps} />
+      </Provider>
     </>
   );
 }

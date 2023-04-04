@@ -1,19 +1,24 @@
 import React, { useState } from "react";
+import {useDispatch, useSelector} from 'react-redux';
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../animations/star.json";
 import medalAnimation from "../animations/medal.json";
 import Link from "next/link";
 import Header from "./Header.js";
 import HelpIcon from "./HelpIcon";
+import {PROFILE, TOGGLE, FILTER} from '../actions/learningPageActions.js'
 
 const DashboardUserDetails = ({
-  Profile,
-  setFilter,
-  setToggle,
+  // Profile,
+  // setFilter,
+  // setToggle,
   setNotify,
   // setMedalComponent,
   // MedalComponent,
 }) => {
+  const dispatch = useDispatch();
+  const {profile, filter, toggle} = useSelector(state => state.learningPage);
+
   return (
     <>
       <div
@@ -65,7 +70,7 @@ const DashboardUserDetails = ({
                   id="avtarPic"
                   alt=""
                   data-avatar="2.svg"
-                  src={Profile}
+                  src={profile}
                   className="rounded-circle border border-white w-100"
                   style={{ borderWidth: "3px !important" }}
                 />
@@ -78,8 +83,10 @@ const DashboardUserDetails = ({
                     right: "0",
                   }}
                   onClick={() => {
-                    setFilter("brightness(50%)");
-                    setToggle(true);
+                    // setFilter("brightness(50%)");
+                    // setToggle(true);
+                    dispatch(FILTER("brightness(50%)"));
+                    dispatch(TOGGLE(true));
                   }}
                 ></i>
               </div>

@@ -1,23 +1,28 @@
+import BottomNav from "@/components/BottomNav.js";
 import DashboardUserDetails from "@/components/DashboardUserDetails";
-import React,{useState} from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
+import Avatar from "../components/Avatar.js";
 
 const medals = () => {
   const [Notify, setNotify] = useState(false);
-  const [Filter, setFilter] = useState("brightness(100%)");
-  const [Toggle, setToggle] = useState(false);
-  const [MedalComponent, setMedalComponent] = useState(false);
-  const [Profile, setProfile] = useState(
-    "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/2.svg"
-  );
+  const { toggle } = useSelector((state) => state.learningPage);
+  // const [Filter, setFilter] = useState("brightness(100%)");
+  // const [Toggle, setToggle] = useState(false);
+  // const [MedalComponent, setMedalComponent] = useState(false);
+  // const [Profile, setProfile] = useState(
+  //   "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/2.svg"
+  // );
   return (
     <>
+      {toggle && <Avatar />}
       <DashboardUserDetails
-        setFilter={setFilter}
-        setToggle={setToggle}
+        // setFilter={setFilter}
+        // setToggle={setToggle}
         setNotify={setNotify}
-        setMedalComponent={setMedalComponent}
-        MedalComponent={MedalComponent}
-        Profile={Profile}
+        // setMedalComponent={setMedalComponent}
+        // MedalComponent={MedalComponent}
+        // Profile={Profile}
       ></DashboardUserDetails>
       <div
         id="scrollContainer"
@@ -155,6 +160,7 @@ const medals = () => {
           </div>
         </div>
       </div>
+      <BottomNav></BottomNav>
     </>
   );
 };

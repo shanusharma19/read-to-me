@@ -240,7 +240,7 @@ export default function myPlans() {
             </div>
           </a>
         </div>
-        {/* <BottomNav ></BottomNav> */}
+        <BottomNav ></BottomNav>
       </div>
     </>
   );
