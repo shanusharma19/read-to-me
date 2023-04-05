@@ -16,3 +16,9 @@ export const PROFILE = (value) => {
       value
     }
   }
+  export const NOTIFY = (value) => {
+    return {
+      type: 'CHANGE_NOTIFY',
+      value
+    }
+  }

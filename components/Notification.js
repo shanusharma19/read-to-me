@@ -1,8 +1,11 @@
 import React from "react";
+import {useDispatch} from 'react-redux';
 import Link from "next/link";
 import HelpIcon from "./HelpIcon.js";
+import {NOTIFY} from '../actions/learningPageActions.js'
 
-const Notification = ({ setNotify }) => {
+const Notification = () => {
+  const dispatch = useDispatch();
   return (
     <>
       <div className="container-fluid fixed-top web-header">
@@ -15,7 +18,8 @@ const Notification = ({ setNotify }) => {
       <div
         className="back-arrow-holder"
         onClick={() => {
-          setNotify(false);
+          // setNotify(false);
+          dispatch(NOTIFY(false));
         }}
       >
         <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg" />

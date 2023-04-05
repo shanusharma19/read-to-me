@@ -3,10 +3,11 @@ import DashboardUserDetails from "@/components/DashboardUserDetails";
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import Avatar from "../components/Avatar.js";
+import Notification from "../components/Notification.js";
 
 const medals = () => {
-  const [Notify, setNotify] = useState(false);
-  const { toggle } = useSelector((state) => state.learningPage);
+  // const [Notify, setNotify] = useState(false);
+  const { notify, toggle } = useSelector((state) => state.learningPage);
   // const [Filter, setFilter] = useState("brightness(100%)");
   // const [Toggle, setToggle] = useState(false);
   // const [MedalComponent, setMedalComponent] = useState(false);
@@ -16,10 +17,14 @@ const medals = () => {
   return (
     <>
       {toggle && <Avatar />}
+      {notify ? (
+          <Notification/>
+        ) : (
+          <>
       <DashboardUserDetails
         // setFilter={setFilter}
         // setToggle={setToggle}
-        setNotify={setNotify}
+        // setNotify={setNotify}
         // setMedalComponent={setMedalComponent}
         // MedalComponent={MedalComponent}
         // Profile={Profile}
@@ -160,7 +165,9 @@ const medals = () => {
           </div>
         </div>
       </div>
-      <BottomNav></BottomNav>
+      </>
+      )}
+       {!notify && <BottomNav />}
     </>
   );
 };

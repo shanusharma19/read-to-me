@@ -9,8 +9,8 @@ import Loader from "../components/Loader.js";
 import BottomNav from "../components/BottomNav.js";
 
 export default function learningChannel() {
-  const [Notify, setNotify] = useState(false);
-  const {profile, filter, toggle} = useSelector(state => state.learningPage);
+  const {notify, profile, filter, toggle} = useSelector(state => state.learningPage);
+  // const [Notify, setNotify] = useState(false);
   // const [Filter, setFilter] = useState("brightness(100%)");
   // const [Toggle, setToggle] = useState(false);
   // // const [MedalComponent, setMedalComponent] = useState(false);
@@ -28,14 +28,14 @@ export default function learningChannel() {
         id="learn"
         // style={{ background: "rgba(0,0,0,0.8)" }}
       >
-        {Notify ? (
-          <Notification setNotify={setNotify} />
+        {notify ? (
+          <Notification/>
         ) : (
           <>
             <DashboardUserDetails
               // setFilter={setFilter}
               // setToggle={setToggle}
-              setNotify={setNotify}
+              // setNotify={setNotify}
               // setMedalComponent={setMedalComponent}
               // MedalComponent={MedalComponent}
               // Profile={Profile}
@@ -47,7 +47,7 @@ export default function learningChannel() {
           </>
         )}
       </div>
-      <BottomNav></BottomNav>
+      {!notify && <BottomNav />}
     </>
   );
 }

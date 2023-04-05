@@ -2,6 +2,7 @@ const initialState = {
         profile: "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/2.svg",
         filter: "brightness(100%)",
         toggle: false,
+        notify: false,
   }
   function learningPage(state = initialState, action) {
     switch (action.type) {
@@ -21,6 +22,12 @@ const initialState = {
             return {
                 ...state,
                 filter: action.value,
+            }
+          }
+          case 'CHANGE_NOTIFY': {
+            return {
+              ...state,
+              notify: action.value,
             }
           }
           default:

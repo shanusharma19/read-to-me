@@ -6,18 +6,18 @@ import medalAnimation from "../animations/medal.json";
 import Link from "next/link";
 import Header from "./Header.js";
 import HelpIcon from "./HelpIcon";
-import {PROFILE, TOGGLE, FILTER} from '../actions/learningPageActions.js'
+import {NOTIFY, PROFILE, TOGGLE, FILTER} from '../actions/learningPageActions.js'
 
 const DashboardUserDetails = ({
   // Profile,
   // setFilter,
   // setToggle,
-  setNotify,
+  // setNotify,
   // setMedalComponent,
   // MedalComponent,
 }) => {
   const dispatch = useDispatch();
-  const {profile, filter, toggle} = useSelector(state => state.learningPage);
+  const {notify, profile, filter, toggle} = useSelector(state => state.learningPage);
 
   return (
     <>
@@ -35,7 +35,8 @@ const DashboardUserDetails = ({
           id="noti_Button"
           className="back-arrow-holder"
           onClick={() => {
-            setNotify(true);
+            // setNotify(true);
+            dispatch(NOTIFY(true));
           }}
         >
           <img
