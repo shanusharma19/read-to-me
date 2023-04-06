@@ -4,18 +4,10 @@ import Lottie from "lottie-react";
 import groovyWalkAnimation from "../animations/star.json";
 import medalAnimation from "../animations/medal.json";
 import Link from "next/link";
-import Header from "./Header.js";
-import HelpIcon from "./HelpIcon";
 import {NOTIFY, PROFILE, TOGGLE, FILTER} from '../actions/learningPageActions.js'
+import LoginHeader from "./LoginHeader";
 
-const DashboardUserDetails = ({
-  // Profile,
-  // setFilter,
-  // setToggle,
-  // setNotify,
-  // setMedalComponent,
-  // MedalComponent,
-}) => {
+const DashboardUserDetails = () => {
   const dispatch = useDispatch();
   const {notify, profile, filter, toggle} = useSelector(state => state.learningPage);
 
@@ -29,32 +21,7 @@ const DashboardUserDetails = ({
         data-aos-delay="0"
         style={{ paddingBottom: "75px" }}
       >
-        <Header />
-        {/* {!MedalComponent && ( */}
-        <div
-          id="noti_Button"
-          className="back-arrow-holder"
-          onClick={() => {
-            // setNotify(true);
-            dispatch(NOTIFY(true));
-          }}
-        >
-          <img
-            src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/Group-4487.svg"
-            alt=""
-          />
-          <span className="badge bg-c-red"></span>
-        </div>
-        {/* )} */}
-
-        <HelpIcon />
-        <div className="points-icon-holder " data-url="earn-points">
-          <Lottie
-            style={{ width: "25px", transform: "translateY(-5%)" }}
-            animationData={groovyWalkAnimation}
-            loop={true}
-          />
-        </div>
+        <LoginHeader/>
         <div
           className="container-fluid green-gradient pt-3 pb-5 position-fixed"
           style={{
@@ -84,8 +51,6 @@ const DashboardUserDetails = ({
                     right: "0",
                   }}
                   onClick={() => {
-                    // setFilter("brightness(50%)");
-                    // setToggle(true);
                     dispatch(FILTER("brightness(50%)"));
                     dispatch(TOGGLE(true));
                   }}

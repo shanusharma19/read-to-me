@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useSelector } from 'react-redux'
+import { useSelector } from "react-redux";
 import Link from "next/link";
 import DashboardUserDetails from "../components/DashboardUserDetails";
 import DashboardContent from "../components/DashboardContent";
@@ -9,41 +9,23 @@ import Loader from "../components/Loader.js";
 import BottomNav from "../components/BottomNav.js";
 
 export default function learningChannel() {
-  const {notify, profile, filter, toggle} = useSelector(state => state.learningPage);
-  // const [Notify, setNotify] = useState(false);
-  // const [Filter, setFilter] = useState("brightness(100%)");
-  // const [Toggle, setToggle] = useState(false);
-  // // const [MedalComponent, setMedalComponent] = useState(false);
-  // const [Profile, setProfile] = useState(
-  //   "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/2.svg"
-  // );
+  const { notify, profile, filter, toggle } = useSelector(
+    (state) => state.learningPage
+  );
   return (
     <>
-    <Loader Display={"none"}></Loader>
-      {toggle && (
-        <Avatar
-        />
-      )}
+      <Loader Display={"none"}></Loader>
+      {toggle && <Avatar />}
       <div
         id="learn"
         // style={{ background: "rgba(0,0,0,0.8)" }}
       >
         {notify ? (
-          <Notification/>
+          <Notification />
         ) : (
           <>
-            <DashboardUserDetails
-              // setFilter={setFilter}
-              // setToggle={setToggle}
-              // setNotify={setNotify}
-              // setMedalComponent={setMedalComponent}
-              // MedalComponent={MedalComponent}
-              // Profile={Profile}
-            />
-            <DashboardContent
-              // MedalComponent={MedalComponent}
-              // setMedalComponent={setMedalComponent}
-            />
+            <DashboardUserDetails />
+            <DashboardContent />
           </>
         )}
       </div>

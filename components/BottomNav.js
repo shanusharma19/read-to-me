@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import Crown from "../animations/crown.json";
 import Lottie from "lottie-react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 
 const BottomNav = () => {
-  const [Active, setActive] = useState();
-  const [Select, setSelect] = useState();
+  const { pathname } = useRouter();
   return (
     <>
       <div className="bottom-nav container-fluid">
@@ -13,14 +13,9 @@ const BottomNav = () => {
           <div className="col text-center p-0">
             <Link
               style={{ textDecoration: "none" }}
-              onClick={() => {
-                setActive("active");
-                setSelect("1");
-                // setMedalComponent(false);
-              }}
               href="/learningChannel"
               className={`d-flex flex-column align-items-center position-relative text-body bottomNavLink ${
-                Select == "1" ? Active : ""
+                pathname == "/learningChannel" ? "active" : ""
               }`}
               id="myDashboardNav"
             >
@@ -35,14 +30,8 @@ const BottomNav = () => {
           <div className="col text-center p-0">
             <a
               style={{ textDecoration: "none" }}
-              onClick={() => {
-                setActive("active");
-                setSelect("2");
-              }}
               href="#"
-              className={`d-flex flex-column align-items-center text-body position-relative bottomNavLink ${
-                Select == "2" ? Active : ""
-              }`}
+              className="d-flex flex-column align-items-center text-body position-relative bottomNavLink"
               id="myTextbooksNav"
             >
               <img
@@ -54,15 +43,11 @@ const BottomNav = () => {
             </a>
           </div>
           <div className="col text-center p-0">
-            <a
+            <Link
               style={{ textDecoration: "none" }}
-              onClick={() => {
-                setActive("active");
-                setSelect("3");
-              }}
-              href="#"
-              className={`d-flex flex-column align-items-center text-body position-relative bottomNavLink ${
-                Select == "3" ? Active : ""
+              href="/leaderboard"
+              className={`d-flex flex-column align-items-center position-relative text-body bottomNavLink ${
+                pathname == "/leaderboard" ? "active" : ""
               }`}
               data-url="leaderboard"
             >
@@ -74,17 +59,13 @@ const BottomNav = () => {
                 ></Lottie>
               </span>
               <p className="small m-0 mt-1 bottomNavText">Leaderboard</p>
-            </a>
+            </Link>
           </div>
           <div className="col text-center p-0">
             <Link
               style={{ textDecoration: "none" }}
-              onClick={() => {
-                setActive("active");
-                setSelect("4");
-              }}
               className={`d-flex flex-column align-items-center text-body position-relative bottomNavLink ${
-                Select == "4" ? Active : ""
+                pathname == "/myPlans" ? "active" : ""
               }`}
               href="/myPlans"
               id="myAccountNav"

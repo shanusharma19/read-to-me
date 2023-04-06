@@ -13,6 +13,7 @@ import "@/styles/LearningChannel.css";
 import "@/styles/Avatar.css";
 import "@/styles/BottomNav.css";
 import "@/styles/Medals.css";
+import "@/styles/Leaderboard.css";
 import { useEffect } from "react";
 import { Provider } from "react-redux";
 import store from '../store.js'

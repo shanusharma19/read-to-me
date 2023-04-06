@@ -1,0 +1,23 @@
+.green-gradient {
+    background: #1a903d;
+    background: linear-gradient(0deg,#1a903d 0,#8bc34a 100%);
+}
+
+.filterButton{
+    text-decoration: none;
+    color: black;
+}
+a, a:active, a:focus, a:hover, a:visited {
+    outline: 0;
+    text-decoration: none;
+}
+.ececec {
+    background: #ececec;
+    color: black !important;
+}
+.color-orange {
+    color: #f9a825;
+}
+.img-grayscale {
+    filter: grayscale(100%);
+}
