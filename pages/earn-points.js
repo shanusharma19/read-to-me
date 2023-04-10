@@ -8,8 +8,9 @@ import Avatar from "../components/Avatar.js";
 import Loader from "../components/Loader.js";
 import BottomNav from "../components/BottomNav.js";
 import Home from "../components/Home.js";
+import Points from "../components/Points.js";
 
-export default function learningChannel() {
+export default function earnPoints() {
   const { notify, profile, filter, toggle } = useSelector(
     (state) => state.learningPage
   );
@@ -19,14 +20,13 @@ export default function learningChannel() {
       {toggle && <Avatar />}
       <div
         id="learn"
-        // style={{ background: "rgba(0,0,0,0.8)" }}
       >
         {notify ? (
           <Notification />
         ) : (
           <>
             <DashboardUserDetails />
-            <DashboardContent Content={Home}></DashboardContent>
+            <DashboardContent Content={Points}></DashboardContent>
           </>
         )}
       </div>

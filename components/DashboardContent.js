@@ -4,9 +4,8 @@ import Trophy from "../animations/trophy.json";
 import Link from "next/link";
 import BottomNav from "./BottomNav";
 import Medals from "../pages/medals.js";
-import Home from "./Home.js";
 
-const DashboardContent = () => {
+const DashboardContent = ({Content}) => {
   return (
     <>
       <div
@@ -38,7 +37,7 @@ const DashboardContent = () => {
               </div>
             </div>
           </div>
-          <Home />
+          <Content />
         </div>
       </div>
     </>

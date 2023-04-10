@@ -65,6 +65,7 @@ const DashboardUserDetails = () => {
                 <div id="pointsStar" className="d-inline-flex pl-3 ">
                   <div className="row">
                     <div className="col-5 pr-0">
+                    <Link href="/earn-points">
                       <div
                         className="points-icon-holder "
                         data-url="earn-points"
@@ -79,6 +80,7 @@ const DashboardUserDetails = () => {
                           loop={true}
                         />
                       </div>
+                     </Link> 
                     </div>
                     <div
                       className="col pl-1 "
