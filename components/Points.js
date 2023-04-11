@@ -18,9 +18,7 @@ const Points = () => {
           <h5 className="text-right">Points won by you</h5>
         </div>
       </div>
-
-      <WinPointsCard/>
-
+      <WinPointsCard />
     </>
   );
 };

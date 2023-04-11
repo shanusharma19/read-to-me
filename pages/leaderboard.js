@@ -207,7 +207,6 @@ export default function leaderboard() {
                               YOUR POINTS
                             </p>
                           </div>
-                          {/*  */}
                         </div>
                       </div>
                       <div className="col d-flex align-items-center justify-content-center">
@@ -253,22 +252,22 @@ export default function leaderboard() {
                   </div>
                   <div className="row">
                     <div className="col d-flex align-items-center justify-content-center px-1">
-                      <a
+                      <Link
                         href="earn-points"
                         className="btn btn-success btn-lg rtr-btn icon-btn text-white py-3 px-2"
                         style={{ fontSize: "1rem" }}
                       >
                         WIN MORE POINTS
-                      </a>
+                      </Link>
                     </div>
                     <div className="col d-flex align-items-center justify-content-center px-1">
-                      <a
+                      <Link
                         href="medals"
                         className="btn btn-warning btn-lg rtr-btn icon-btn text-white py-3 px-2"
                         style={{ fontSize: "1rem" }}
                       >
                         WIN MORE MEDALS
-                      </a>
+                      </Link>
                     </div>
                   </div>
 
@@ -308,15 +307,21 @@ export default function leaderboard() {
                                     <img
                                       src="https://assets.englishhelper.com/righttoread/v8.83.38.20230404/assets/images/point-star.svg"
                                       alt=""
-                                      style={{ height: "15px", marginRight:"4px" }}
+                                      style={{
+                                        height: "15px",
+                                        marginRight: "4px",
+                                      }}
                                     />
                                     24544 Points
                                   </span>
-                                  <span style={{marginLeft:"4px"}}>
+                                  <span style={{ marginLeft: "4px" }}>
                                     <img
                                       src="https://assets.englishhelper.com/righttoread/v8.83.38.20230404/assets/images/toppers-medal.svg"
                                       alt=""
-                                      style={{ height: "15px", marginRight:"4px" }}
+                                      style={{
+                                        height: "15px",
+                                        marginRight: "4px",
+                                      }}
                                     />
                                     2 Medals
                                   </span>
@@ -335,7 +340,6 @@ export default function leaderboard() {
                       </div>
                     </div>
                   </div>
-
                 </div>
               </div>
             </div>

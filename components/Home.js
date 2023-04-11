@@ -2,6 +2,7 @@ import React from "react";
 import Lottie from "lottie-react";
 import Trophy from "../animations/trophy.json";
 import Link from "next/link";
+import Input from "./Input";
 const Home = () => {
   return (
     <>
@@ -120,18 +121,8 @@ const Home = () => {
             className="mb-0"
             noValidate="novalidate"
           >
-            <div className="input-group">
-              <input
-                autoComplete="off"
-                type="text"
-                id="studentEditUdise_updateUdise"
-                name="studentEditUdise_updateUdise"
-                className="form-control school-code border border-success border-right-0"
-                style={{ backgroundColor: "#fff" }}
-                aria-label="studentEditUdise Input"
-                aria-describedby="studentEditUdisesubmit"
-                placeholder="अपना स्कूल यूडीज़ कोड एंटर करें"
-              />
+            <div className="input-group" >
+              <Input></Input>
               <div className="input-group-append">
                 <span
                   className="input-group-text bg-orange rounded-right border border-success border-left-0"

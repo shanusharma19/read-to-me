@@ -1,0 +1,25 @@
+.activity-card.bg-color-green {
+    background: #8bc34a;
+}
+.activity-card {
+    background: #fff;
+    border-radius: 16px;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+.activity-card.bg-color-green .activites-info-text {
+    color: #fff;
+}
+.activites-info-text {
+    font-size: 11px;
+    color: #9e9e9e;
+}
+.activity-card.bg-color-green .activity-points {
+    background: #fff;
+}
+.activity-points {
+    background-color: #ffe791;
+    border-radius: 22px;
+    font-weight: 600;
+    padding: 8px 0;
+}

@@ -65,7 +65,7 @@ const DashboardUserDetails = () => {
                 <div id="pointsStar" className="d-inline-flex pl-3 ">
                   <div className="row">
                     <div className="col-5 pr-0">
-                    <Link href="/earn-points">
+                    <Link href="/leaderboard">
                       <div
                         className="points-icon-holder "
                         data-url="earn-points"
