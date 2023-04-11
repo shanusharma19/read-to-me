@@ -6,7 +6,11 @@ Step 1: Clone the repository First, open up your terminal and navigate to the di
        
        
 Step 2: Install dependencies Once the repository has been cloned, navigate into the project directory using the following command:
+<<<<<<< HEAD
        cd <project-directory> 
+=======
+       cd <project-directory>
+>>>>>>> 2008d951c9ce5d99e5ce5dabafd0c98c770d45a5
   
 Next, you will need to install the project dependencies. Run the following command in your terminal:
   
