@@ -280,8 +280,8 @@ export default function leaderboard() {
                   </div>
 
                   <div className="row bg-white">
-                    <div class="col-12">
-                      <div class="row align-items-center">
+                    <div className="col-12">
+                      <div className="row align-items-center">
                         <div className="col-2 py-2 pr-0 pl-1">
                           <h5 className="text-center green-color font-weight-bold m-0">
                             1
@@ -328,7 +328,7 @@ export default function leaderboard() {
                                 </p>
                               </div>
                             </div>
-                            <div class="col-2 pl-0 pr-1 text-center">
+                            <div className="col-2 pl-0 pr-1 text-center">
                               <img
                                 alt=""
                                 src="https://assets.englishhelper.com/righttoread/v8.83.38.20230404/assets/images/leaderboard/RTM-topperGold.svg"

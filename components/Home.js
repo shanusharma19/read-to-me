@@ -237,11 +237,11 @@ const Home = () => {
             View All
           </Link>
         </div>
-        <div class="col">
-          <div class="reviseYourChapter owl-carousel upcommingClassCarousel owl-loaded owl-drag">
-            <div class="owl-stage-outer">
+        <div className="col">
+          <div className="reviseYourChapter owl-carousel upcommingClassCarousel owl-loaded owl-drag">
+            <div className="owl-stage-outer">
               <div
-                class="owl-stage"
+                className="owl-stage"
                 style={{
                   transform: "translate3d(0px, 0px, 0px)",
                   transition: "all 0s ease 0s",

@@ -25,13 +25,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div class="container-fluid">
-          <div class="row pb-5">
-            <div id="homeSlider" class="carousel slide" data-ride="carousel">
-              <div class="carousel-inner">
-                <div class="carousel-item active">
+        <div className="container-fluid">
+          <div className="row pb-5">
+            <div id="homeSlider" className="carousel slide" data-ride="carousel">
+              <div className="carousel-inner">
+                <div className="carousel-item active">
                   <h1
-                    class="h4 slide-text font-weight-normal text-center py-3 px-2"
+                    className="h4 slide-text font-weight-normal text-center py-3 px-2"
                     data-aos="fade-up"
                     data-aos-delay="50"
                   >
@@ -39,7 +39,7 @@ export default function Home() {
                   </h1>
                   <img
                     src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/slide-img.svg"
-                    class=""
+                    className=""
                     alt=""
                     data-aos="fade-up"
                     data-aos-delay="100"
@@ -50,13 +50,13 @@ export default function Home() {
           </div>
         </div>
 
-        <div class="container-fluid" data-aos="fade-up" data-aos-delay="150">
-          <div class="row pb-5">
-            <div class="col text-center py-3">
+        <div className="container-fluid" data-aos="fade-up" data-aos-delay="150">
+          <div className="row pb-5">
+            <div className="col text-center py-3">
               <Link
                 href="/login"
                 id="startNowLink"
-                class="btn  btn-warning btn-lg rtr-btn"
+                className="btn  btn-warning btn-lg rtr-btn"
               >
                 START NOW
               </Link>
