@@ -17,8 +17,10 @@ import {
 } from "../actions/learningPageActions.js";
 import DashboardContent from "@/components/DashboardContent.js";
 import Home from "@/components/Home.js";
+import UDISEmodal from "@/components/UDISEmodal.js";
 
 export default function leaderboard() {
+  const [Toggle, setToggle] = useState(false);
   const dispatch = useDispatch();
   const { notify, profile, filter, toggle } = useSelector(
     (state) => state.learningPage
@@ -129,6 +131,9 @@ export default function leaderboard() {
                           className="filterButton"
                           data-toggle="modal"
                           href="#updateUDISEPopup"
+                          onClick={() => {
+                            setToggle(true);
+                          }}
                         >
                           <span className=" ececec rounded-pill px-4 py-2 white-space-no-wrap mr-1">
                             STATE
@@ -138,6 +143,9 @@ export default function leaderboard() {
                           className="filterButton"
                           data-toggle="modal"
                           href="#updateUDISEPopup"
+                          onClick={() => {
+                            setToggle(true);
+                          }}
                         >
                           <span className=" ececec rounded-pill px-4 py-2 white-space-no-wrap mr-1">
                             DISTRICT
@@ -147,6 +155,9 @@ export default function leaderboard() {
                           className="filterButton"
                           data-toggle="modal"
                           href="#updateUDISEPopup"
+                          onClick={() => {
+                            setToggle(true);
+                          }}
                         >
                           <span className=" ececec rounded-pill px-4 py-2 white-space-no-wrap mr-1">
                             SCHOOL
@@ -346,6 +357,7 @@ export default function leaderboard() {
           </>
         )}
       </div>
+      {Toggle && <UDISEmodal setToggle={setToggle} />}
       {!notify && <BottomNav />}
     </>
   );

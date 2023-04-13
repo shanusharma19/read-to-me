@@ -122,7 +122,7 @@ const Home = () => {
             noValidate="novalidate"
           >
             <div className="input-group" >
-              <Input></Input>
+              <Input width={"82.3vw"}></Input>
               <div className="input-group-append">
                 <span
                   className="input-group-text bg-orange rounded-right border border-success border-left-0"
