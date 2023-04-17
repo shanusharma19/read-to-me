@@ -14,6 +14,7 @@ import {
   PROFILE,
   TOGGLE,
   FILTER,
+  BRIGHTNESS,
 } from "../actions/learningPageActions.js";
 import DashboardContent from "@/components/DashboardContent.js";
 import Home from "@/components/Home.js";
@@ -22,7 +23,7 @@ import UDISEmodal from "@/components/UDISEmodal.js";
 export default function leaderboard() {
   const [Toggle, setToggle] = useState(false);
   const dispatch = useDispatch();
-  const { notify, profile, filter, toggle } = useSelector(
+  const { notify, profile, filter, toggle, brightness } = useSelector(
     (state) => state.learningPage
   );
   return (
@@ -133,6 +134,9 @@ export default function leaderboard() {
                           href="#updateUDISEPopup"
                           onClick={() => {
                             setToggle(true);
+                            dispatch(
+                              BRIGHTNESS("rgb(0,0,0,0.5)")
+                            );
                           }}
                         >
                           <span className=" ececec rounded-pill px-4 py-2 white-space-no-wrap mr-1">
@@ -145,6 +149,9 @@ export default function leaderboard() {
                           href="#updateUDISEPopup"
                           onClick={() => {
                             setToggle(true);
+                            dispatch(
+                              BRIGHTNESS("rgb(0,0,0,0.5)")
+                            );
                           }}
                         >
                           <span className=" ececec rounded-pill px-4 py-2 white-space-no-wrap mr-1">
@@ -157,6 +164,9 @@ export default function leaderboard() {
                           href="#updateUDISEPopup"
                           onClick={() => {
                             setToggle(true);
+                            dispatch(
+                              BRIGHTNESS("rgb(0,0,0,0.5)")
+                            );
                           }}
                         >
                           <span className=" ececec rounded-pill px-4 py-2 white-space-no-wrap mr-1">

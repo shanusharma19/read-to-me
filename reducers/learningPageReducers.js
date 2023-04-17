@@ -3,6 +3,7 @@ const initialState = {
         filter: "brightness(100%)",
         toggle: false,
         notify: false,
+        brightness: "rgb(0,0,0,0.0)",
   }
   function learningPage(state = initialState, action) {
     switch (action.type) {
@@ -28,6 +29,12 @@ const initialState = {
             return {
               ...state,
               notify: action.value,
+            }
+          }
+          case 'CHANGE_BRIGHTNESS': {
+            return {
+              ...state,
+              brightness: action.value,
             }
           }
           default:

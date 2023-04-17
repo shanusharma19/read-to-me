@@ -1,7 +1,13 @@
 import React from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Input from "@/components/Input.js";
+import { BRIGHTNESS } from "@/actions/learningPageActions";
 
 const UDISEmodal = ({setToggle}) => {
+  const dispatch = useDispatch();
+  const { brightness } = useSelector(
+    (state) => state.learningPage
+  );
   return (
     <>
       <div
@@ -11,7 +17,7 @@ const UDISEmodal = ({setToggle}) => {
         tabindex="-1"
         role="dialog"
         aria-labelledby="updateUDISEPopup"
-        style={{ display: "block", paddingRight: "0px" }}
+        style={{ display: "block", paddingRight: "0px", backgroundColor: brightness }}
         aria-modal="true"
       >
         <div className="modal-dialog  modal-dialog-centered" role="document">
@@ -25,6 +31,7 @@ const UDISEmodal = ({setToggle}) => {
               aria-label="Close"
               onClick={()=>{
                 setToggle(false)
+                dispatch(BRIGHTNESS("rgb(0,0,0,0.0)"))
               }}
             >
               <span aria-hidden="true">×</span>
