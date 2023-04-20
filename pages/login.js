@@ -1,30 +1,62 @@
 import React, { useEffect, useState } from "react";
-import {validateEmail, phonenumber} from '../utils/validate.js'
+import useSWR from "swr";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { validateEmail, phonenumber } from "../utils/validate.js";
 import Header from "../components/Header.js";
 
 export default function login() {
+  const { push } = useRouter();
   const [Phone, setPhone] = useState("");
   const [Email, setEmail] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
 
-  const handleLogin = async () => {
+  const fetcher = async () => {
+    const options = {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json; charset=UTF-8",
+        Accept: "application/json",
+        client_secret:
+          "$2a$11$xLyxIevALWSEAkAekjmELuSqXIdF8gIhmKWOev9ywjiyrT0PQspty",
+        client_id: "righttoread",
+      },
+      body: JSON.stringify({
+        fieldName: "userPhone",
+        fieldValue: Phone,
+        isdCode: "+91",
+        registrationCountryCode: "IN",
+        userCountry: "India",
+        userPhone: Phone,
+        _csrf: "Q1NgkfHKy0eVr4XMGeXc",
+      }),
+    };
+    const res = await fetch("/checkAvailability", options);
+    const data = await res.json();
 
+    if ("successMsg" in data) push("/signup");
+    else push("/login-password");
+  };
+
+  const handleLogin = async () => {
     if (submitButtonDisabled) return;
-    if (Email===""&&Phone==="") {
+    if (Email === "" && Phone === "") {
       setErrorMsg("Please enter your mobile number or email to continue");
       return;
     }
-    if (!validateEmail(Email)&&Phone==="") {
+    if (!validateEmail(Email) && Phone === "") {
       setErrorMsg("Email is not valid");
       return;
     }
-    if (!phonenumber(Phone)&&Email==="") {
+    if (!phonenumber(Phone) && Email === "") {
       setErrorMsg("Phone number is not valid");
       return;
     }
     setErrorMsg("");
     setSubmitButtonDisabled(true);
+    // let {  } = fetcher();
+    fetcher();
   };
 
   return (
@@ -38,9 +70,9 @@ export default function login() {
       >
         <Header />
 
-        <a className="back-arrow-holder" href="/">
+        <Link className="back-arrow-holder" href="/">
           <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg" />
-        </a>
+        </Link>
         <div
           className="container-fluid aos-init aos-animate"
           data-aos="fade-up"
@@ -93,12 +125,11 @@ export default function login() {
                       autoComplete="off"
                       role="presentation"
                       data-intl-tel-input-id="0"
-                      disabled={Email!=="" && true}
-                      onChange={(event) =>{
+                      disabled={Email !== "" && true}
+                      onChange={(event) => {
                         setPhone(event.target.value);
                         setSubmitButtonDisabled(false);
-                      }
-                    }
+                      }}
                     />
                   </div>
                   <input
@@ -142,12 +173,11 @@ export default function login() {
                       aria-describedby="emailHelp"
                       placeholder="Enter your email address"
                       autoComplete="off"
-                      disabled={Phone!=="" && true}
-                      onChange={(event) =>{
+                      disabled={Phone !== "" && true}
+                      onChange={(event) => {
                         setEmail(event.target.value);
                         setSubmitButtonDisabled(false);
-                      }
-                      }
+                      }}
                     />
                   </label>
                 </div>
@@ -157,7 +187,7 @@ export default function login() {
                   data-aos-delay="200"
                   data-aos-offset="0"
                 >
-                  {errorMsg && <p className="errormessage" >{errorMsg}</p>}
+                  {errorMsg && <p className="errormessage">{errorMsg}</p>}
                   <button
                     type="button"
                     className="btn btn-success btn-lg rtr-btn icon-btn px-5"
