@@ -55,7 +55,6 @@ export default function login() {
     }
     setErrorMsg("");
     setSubmitButtonDisabled(true);
-    // let {  } = fetcher();
     fetcher();
   };
 

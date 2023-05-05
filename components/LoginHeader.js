@@ -32,7 +32,7 @@ const LoginHeader = () => {
         <HelpIcon />
         <div className="points-icon-holder " data-url="earn-points">
           <Lottie
-            style={{ width: "25px", transform: "translateY(-5%)" }}
+            style={{ width: "25px"}}
             animationData={groovyWalkAnimation}
             loop={true}
           />

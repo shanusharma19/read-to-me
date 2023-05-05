@@ -9,7 +9,7 @@ import LoginHeader from "./LoginHeader";
 
 const DashboardUserDetails = () => {
   const dispatch = useDispatch();
-  const {notify, profile, filter, toggle} = useSelector(state => state.learningPage);
+  const {notify, profile, filter, toggle, details} = useSelector(state => state.learningPage);
 
   return (
     <>
@@ -67,14 +67,17 @@ const DashboardUserDetails = () => {
                     <div className="col-5 pr-0">
                     <Link href="/leaderboard">
                       <div
-                        className="points-icon-holder "
+                        className="points-icon-holde "
                         data-url="earn-points"
+                        style={{
+                          position: "fixed", left: "-10px"
+                        }}
                       >
                         <Lottie
                           id="star"
                           style={{
                             width: "46px",
-                            transform: "translateY(-16%) translateX(-416%)",
+                            // transform: "translateY(-16%) translateX(-416%)",
                           }}
                           animationData={groovyWalkAnimation}
                           loop={true}

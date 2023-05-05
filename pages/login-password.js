@@ -1,15 +1,59 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Header from "../components/Header.js";
 import Modal from "../components/Modal.js";
+import encryptPasswordField from "../utils/Encryption.js";
+import generateString from "../utils/generate.js";
 import { useRouter } from "next/router";
 
 export default function loginPassword() {
-  const router = useRouter();
-  const [Filter, setFilter] = useState('brightness(100%)');
+  const { router, push } = useRouter();
+  const [Filter, setFilter] = useState("brightness(100%)");
   const [Toggle, setToggle] = useState(false);
   const [Password, setPassword] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+
+  const fetcher = async () => {
+    const options = {
+      method: "POST",
+      headers: {
+        "content-Type": "application/json; charset=UTF-8",
+        Accept: "application/json",
+        client_secret:
+          "$2a$11$xLyxIevALWSEAkAekjmELuSqXIdF8gIhmKWOev9ywjiyrT0PQspty",
+        client_id: "righttoread",
+      },
+      body: JSON.stringify({
+        visitorSessionId: "0fa94b21-ca37-47b5-a999-27309cfa4d37",
+        userPassword: encryptPasswordField(Password),
+        // userPassword: "85QUyhjn9L10JwtL+37wMQ==",
+        changeLanguage: false,
+        pwd_salt: (function(){ return document.querySelector("meta[name='pwd_salt']").getAttribute('content')})(),
+        // pwd_salt: "e8c90f35981b5d447878aa11b5e7beab",
+        ipAddress: "127.0.0.1",
+        _csrf: "usZsiIfEXfXrki8TKptL",
+        sessionId: "0fa94b21-ca37-47b5-a999-27309cfa4d37",
+        isdCode: "+91",
+        locale: "en_US",
+        registrationCountryCode: "IN",
+        userCountry: "India",
+        provider: "righttoread",
+        pwd_iv: (function(){ return document.querySelector("meta[name='pwd_iv']").getAttribute('content')})(),
+        // pwd_iv: "cadb0e1bde154d25a0eddd68d2dabd58",
+        userLoginName: "2232564924",
+        en_key: (function(){ return document.querySelector("meta[name='_ek']").getAttribute('content')})(),
+        // en_key: "gze7ZkrYTdACpMx7k7Ua",
+      }),
+    };
+    const res = await fetch("/checkLogin", options);
+    const data = await res.json();
+    console.log(encryptPasswordField(Password));
+    console.log(options);
+
+    if ("errorMsg" in data) push("/login-password");
+    else push("/learningChannel");
+  };
 
   const handleLogin = async () => {
     if (submitButtonDisabled) return;
@@ -26,11 +70,12 @@ export default function loginPassword() {
     }
     setErrorMsg("");
     setSubmitButtonDisabled(true);
+    fetcher();
   };
 
   return (
     <>
-    {Toggle && <Modal setFilter={setFilter} setToggle={setToggle}/>}
+      {Toggle && <Modal setFilter={setFilter} setToggle={setToggle} />}
       <div
         id="body1"
         className="bod"
@@ -38,11 +83,11 @@ export default function loginPassword() {
         data-aos-easing="ease"
         data-aos-duration="400"
         data-aos-delay="0"
-        style={{'filter': Filter}}
+        style={{ filter: Filter }}
       >
         <Header />
-        
-        <span className="back-arrow-holder" onClick={() => router.back()}>
+
+        <span className="back-arrow-holder" onClick={() => push('/login')}>
           <img
             src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg"
             alt=""
@@ -128,10 +173,13 @@ export default function loginPassword() {
                   {errorMsg && <p className="errormessage">{errorMsg}</p>}
                 </div>
 
-                <p className="text-right text-blue" onClick={()=>{
-                  setFilter('brightness(50%)')
-                  setToggle(true)
-                  }}>
+                <p
+                  className="text-right text-blue"
+                  onClick={() => {
+                    setFilter("brightness(50%)");
+                    setToggle(true);
+                  }}
+                >
                   <span data-toggle="modal" data-target="#forgotPasswordModal">
                     Forgot Password?
                   </span>

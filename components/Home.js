@@ -196,6 +196,7 @@ const Home = () => {
                   </span>
                 </div>
                 <div className="col-3 d-flex align-items-center justify-content-center">
+                  <Link href="/contests">
                   <span className="pulse m-0 d-flex align-items-center justify-content-center rounded-circle card-arrow-holder">
                     <span className="pulse card-arrow p-3 rounded-circle text-white d-flex align-items-center justify-content-center">
                       <img
@@ -204,6 +205,7 @@ const Home = () => {
                       />
                     </span>
                   </span>
+                  </Link>
                 </div>
               </div>
             </div>

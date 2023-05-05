@@ -20,7 +20,8 @@ a:visited {
 }
 .points-icon-holder {
   position: fixed;
-  top: 0;
+  top: -5px;
+  /* left: -10px; */
   right: 45px;
   z-index: 1031;
   height: 60px;
@@ -45,11 +46,11 @@ a:visited {
 .img-grayscale {
   filter: grayscale(100%);
 }
-@media screen and (min-width: 900px) {
+/* @media screen and (min-width: 900px) {
   #star {
     transform: translate(-1072px, -16%) !important;
   }
-}
+} */
 .border-dropdown {
   background: 0 0;
   border-color: #fff;

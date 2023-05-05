@@ -28,3 +28,10 @@ export const BRIGHTNESS = (value) => {
     value,
   };
 };
+export const DETAILS = (value) => {
+  return {
+    type: "GET_DETAILS",
+    value,
+  };
+};
+

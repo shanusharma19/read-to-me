@@ -4,6 +4,7 @@ const initialState = {
         toggle: false,
         notify: false,
         brightness: "rgb(0,0,0,0.0)",
+        details: null,
   }
   function learningPage(state = initialState, action) {
     switch (action.type) {
@@ -35,6 +36,12 @@ const initialState = {
             return {
               ...state,
               brightness: action.value,
+            }
+          }
+          case 'GET_DETAILS': {
+            return {
+              ...state,
+              details: action.value,
             }
           }
           default:
