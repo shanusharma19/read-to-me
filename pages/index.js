@@ -1,5 +1,6 @@
 import Head from "next/head";
 import Link from "next/link";
+import StartScreenHeader from "../components/StartScreenHeader.js"
 export default function Home() {
   return (
     <>
@@ -17,13 +18,7 @@ export default function Home() {
         data-aos-duration="400"
         data-aos-delay="0"
       >
-        <div className="container-fluid fixed-top web-header">
-          <div className="row top-header align-items-center justify-content-center">
-            <div className="col">
-              <h4 className="m-0 text-center text-white">ReadToMe</h4>
-            </div>
-          </div>
-        </div>
+        <StartScreenHeader/>
 
         <div className="container-fluid">
           <div className="row pb-5">
