@@ -25,14 +25,14 @@ export default function loginPassword() {
         client_id: "righttoread",
       },
       body: JSON.stringify({
-        // visitorSessionId: "0fa94b21-ca37-47b5-a999-27309cfa4d37",
+        visitorSessionId: "0fa94b21-ca37-47b5-a999-27309cfa4d37",
         userPassword: encryptPasswordField(Password),
         // userPassword: "85QUyhjn9L10JwtL+37wMQ==",
         changeLanguage: false,
         pwd_salt: (function(){ return document.querySelector("meta[name='pwd_salt']").getAttribute('content')})(),
         // pwd_salt: "e8c90f35981b5d447878aa11b5e7beab",
         ipAddress: "127.0.0.1",
-        // _csrf: "usZsiIfEXfXrki8TKptL",
+        _csrf: "usZsiIfEXfXrki8TKptL",
         sessionId: "0fa94b21-ca37-47b5-a999-27309cfa4d37",
         isdCode: "+91",
         locale: "en_US",
@@ -41,16 +41,15 @@ export default function loginPassword() {
         provider: "righttoread",
         pwd_iv: (function(){ return document.querySelector("meta[name='pwd_iv']").getAttribute('content')})(),
         // pwd_iv: "cadb0e1bde154d25a0eddd68d2dabd58",
-        userPhone: "2123212324",
-        userLoginName: "2123212324",
+        userLoginName: "2232564924",
         en_key: (function(){ return document.querySelector("meta[name='_ek']").getAttribute('content')})(),
         // en_key: "gze7ZkrYTdACpMx7k7Ua",
       }),
     };
     const res = await fetch("/checkLogin", options);
     const data = await res.json();
-    // console.log(encryptPasswordField(Password));
-    // console.log(options);
+    console.log(encryptPasswordField(Password));
+    console.log(options);
 
     if ("errorMsg" in data) push("/login-password");
     else push("/learningChannel");

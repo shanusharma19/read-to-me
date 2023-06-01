@@ -19,8 +19,6 @@ import {
 import DashboardContent from "@/components/DashboardContent.js";
 import Home from "@/components/Home.js";
 import UDISEmodal from "@/components/UDISEmodal.js";
-import ReadToMeToppers from "@/components/ReadToMeToppers.js";
-import FilterRank from "@/components/FilterRank.js";
 
 export default function leaderboard() {
   const [Toggle, setToggle] = useState(false);
@@ -114,9 +112,70 @@ export default function leaderboard() {
                       </div>
                     </div>
                   </div>
-
-                  <FilterRank setToggle = {setToggle}></FilterRank>
-
+                  <div className="row" style={{ background: "#fafafa" }}>
+                    <div className="col">
+                      <h5 className="pb-2 pt-0 mb-0">Filter your rank by:</h5>
+                    </div>
+                  </div>
+                  <div className="row" style={{ background: "#fafafa" }}>
+                    <div
+                      className="col-12 px-0 py-2 d-flex"
+                      style={{ overflowX: "auto" }}
+                    >
+                      <div className="d-flex" style={{ flexWrap: "nowrap" }}>
+                        <Link className="filterButton" href="#updateUDISEPopup">
+                          <span className="bg-green text-white rounded-pill px-4 py-2 white-space-no-wrap mx-1">
+                            INDIA
+                          </span>
+                        </Link>
+                        <Link
+                          className="filterButton"
+                          data-toggle="modal"
+                          href="#updateUDISEPopup"
+                          onClick={() => {
+                            setToggle(true);
+                            dispatch(
+                              BRIGHTNESS("rgb(0,0,0,0.5)")
+                            );
+                          }}
+                        >
+                          <span className=" ececec rounded-pill px-4 py-2 white-space-no-wrap mr-1">
+                            STATE
+                          </span>
+                        </Link>
+                        <Link
+                          className="filterButton"
+                          data-toggle="modal"
+                          href="#updateUDISEPopup"
+                          onClick={() => {
+                            setToggle(true);
+                            dispatch(
+                              BRIGHTNESS("rgb(0,0,0,0.5)")
+                            );
+                          }}
+                        >
+                          <span className=" ececec rounded-pill px-4 py-2 white-space-no-wrap mr-1">
+                            DISTRICT
+                          </span>
+                        </Link>
+                        <Link
+                          className="filterButton"
+                          data-toggle="modal"
+                          href="#updateUDISEPopup"
+                          onClick={() => {
+                            setToggle(true);
+                            dispatch(
+                              BRIGHTNESS("rgb(0,0,0,0.5)")
+                            );
+                          }}
+                        >
+                          <span className=" ececec rounded-pill px-4 py-2 white-space-no-wrap mr-1">
+                            SCHOOL
+                          </span>
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                   <div className="bg-white shadow my-3 py-3 mx-n3">
                     <div
                       className="row border-bottom mb-1"
@@ -233,7 +292,75 @@ export default function leaderboard() {
                     </div>
                   </div>
 
-                  <ReadToMeToppers></ReadToMeToppers>
+                  <div className="row mt-3">
+                    <div className="col-12" style={{ background: "#e0e0e0" }}>
+                      <h5 className="text-center font-weight-bold py-3 m-0">
+                        ReadToMe Toppers
+                      </h5>
+                    </div>
+                  </div>
+
+                  <div className="row bg-white">
+                    <div className="col-12">
+                      <div className="row align-items-center">
+                        <div className="col-2 py-2 pr-0 pl-1">
+                          <h5 className="text-center green-color font-weight-bold m-0">
+                            1
+                          </h5>
+                        </div>
+
+                        <div className="col-10 py-2 d-flex px-0 justify-content-end">
+                          <div className="row w-100 m-0 align-items-center">
+                            <div className="col-2 px-0 pl-1">
+                              <img
+                                alt=""
+                                src="https://assets.englishhelper.com/righttoread/v8.83.38.20230404/assets/images/leaderboard/profilePic/12.svg"
+                                className="w-100"
+                              />
+                            </div>
+                            <div className="col-8 px-0">
+                              <div className="ml-1">
+                                <p className="green-color font-weight-bold mb-1 text-ellipsis">
+                                  Ayaz Patel
+                                </p>
+                                <p className="mb-1 small">
+                                  <span>
+                                    <img
+                                      src="https://assets.englishhelper.com/righttoread/v8.83.38.20230404/assets/images/point-star.svg"
+                                      alt=""
+                                      style={{
+                                        height: "15px",
+                                        marginRight: "4px",
+                                      }}
+                                    />
+                                    24544 Points
+                                  </span>
+                                  <span style={{ marginLeft: "4px" }}>
+                                    <img
+                                      src="https://assets.englishhelper.com/righttoread/v8.83.38.20230404/assets/images/toppers-medal.svg"
+                                      alt=""
+                                      style={{
+                                        height: "15px",
+                                        marginRight: "4px",
+                                      }}
+                                    />
+                                    2 Medals
+                                  </span>
+                                </p>
+                              </div>
+                            </div>
+                            <div className="col-2 pl-0 pr-1 text-center">
+                              <img
+                                alt=""
+                                src="https://assets.englishhelper.com/righttoread/v8.83.38.20230404/assets/images/leaderboard/RTM-topperGold.svg"
+                                style={{ width: "32px" }}
+                              />
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>

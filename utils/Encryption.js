@@ -13,7 +13,7 @@ function encryptPasswordField(passwordFieldId) {
     document.querySelector("meta[name='_ks']").getAttribute('content') / 8
   ).toString(CryptoJS.enc.Hex);
   document.querySelector("meta[name='pwd_salt']").setAttribute('content',salt);
-console.log(iv, "and", salt);
+
   const ek = generateString();
   document.querySelector("meta[name='_ek']").setAttribute('content',ek);
   // const aesUtil = new AesUtil(
@@ -25,8 +25,7 @@ console.log(iv, "and", salt);
   const userEncryptPassword = CryptoJS.AES.encrypt(
     salt,
     iv,
-    ek,
-    passwordFieldId
+    ek
   );
 
   return userEncryptPassword.toString();
