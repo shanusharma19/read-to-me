@@ -5,7 +5,7 @@ import Link from "next/link";
 import BottomNav from "./BottomNav";
 import Medals from "../pages/medals.js";
 
-const DashboardContent = ({Content}) => {
+const DashboardContent = ({board, grade, Content}) => {
   return (
     <>
       <div
@@ -37,7 +37,7 @@ const DashboardContent = ({Content}) => {
               </div>
             </div>
           </div>
-          <Content />
+          <Content board={board} grade={grade}/>
         </div>
       </div>
     </>

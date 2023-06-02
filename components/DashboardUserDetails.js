@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {useDispatch, useSelector} from 'react-redux';
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../animations/star.json";
@@ -10,7 +10,7 @@ import LoginHeader from "./LoginHeader";
 const DashboardUserDetails = () => {
   const dispatch = useDispatch();
   const {notify, profile, filter, toggle, details} = useSelector(state => state.learningPage);
-
+  
   return (
     <>
       <div

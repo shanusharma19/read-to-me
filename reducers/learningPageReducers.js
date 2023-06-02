@@ -1,5 +1,5 @@
 const initialState = {
-        profile: "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/2.svg",
+        profile: "",
         filter: "brightness(100%)",
         toggle: false,
         notify: false,

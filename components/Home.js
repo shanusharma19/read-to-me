@@ -1,9 +1,13 @@
-import React from "react";
+import {React, useState} from "react";
 import Lottie from "lottie-react";
 import Trophy from "../animations/trophy.json";
 import Link from "next/link";
 import Input from "./Input";
-const Home = () => {
+const Home = ({board, grade}) => {
+
+  const [Grade, setGrade] = useState(grade)
+  const [Board, setBoard] = useState(board)
+
   return (
     <>
       <div
@@ -22,6 +26,8 @@ const Home = () => {
           >
             <label className="wrap">
               <select
+                onChange={(e)=> {setBoard(e.target.value)}}
+                value= {Board}
                 name="board-dropdown"
                 id="board-dropdown"
                 className="dropdown w-100 pr-1 bg-white"
@@ -81,24 +87,24 @@ const Home = () => {
           >
             <label className="wrap">
               <select
+              onChange={(e)=> {setGrade(e.target.defaultValue)}}
+              value= {Grade}
                 name="grade-dropdown"
                 id="grade-dropdown"
                 className="dropdown w-100 pr-1 bg-white"
               >
-                <option value="Grade 1">Grade 1</option>
-                <option value="Grade 2">Grade 2</option>
-                <option value="Grade 3">Grade 3</option>
-                <option value="Grade 4">Grade 4</option>
-                <option value="Grade 5">Grade 5</option>
-                <option value="Grade 6">Grade 6</option>
-                <option value="Grade 7">Grade 7</option>
-                <option value="Grade 8">Grade 8</option>
-                <option value="Grade 9">Grade 9</option>
-                <option value="Grade 10">Grade 10</option>
-                <option value="Grade 11">Grade 11</option>
-                <option value="Grade 12" selected="">
-                  Grade 12
-                </option>
+                <option defaultValue="Grade 1">Grade 1</option>
+                <option defaultValue="Grade 2">Grade 2</option>
+                <option defaultValue="Grade 3">Grade 3</option>
+                <option defaultValue="Grade 4">Grade 4</option>
+                <option defaultValue="Grade 5">Grade 5</option>
+                <option defaultValue="Grade 6">Grade 6</option>
+                <option defaultValue="Grade 7">Grade 7</option>
+                <option defaultValue="Grade 8">Grade 8</option>
+                <option defaultValue="Grade 9">Grade 9</option>
+                <option defaultValue="Grade 10">Grade 10</option>
+                <option defaultValue="Grade 11">Grade 11</option>
+                <option defaultValue="Grade 12">Grade 12</option>
               </select>
             </label>
           </form>
@@ -121,7 +127,7 @@ const Home = () => {
             className="mb-0"
             noValidate="novalidate"
           >
-            <div className="input-group" >
+            <div className="input-group">
               <Input width={"82.3vw"}></Input>
               <div className="input-group-append">
                 <span
@@ -197,14 +203,14 @@ const Home = () => {
                 </div>
                 <div className="col-3 d-flex align-items-center justify-content-center">
                   <Link href="/contests">
-                  <span className="pulse m-0 d-flex align-items-center justify-content-center rounded-circle card-arrow-holder">
-                    <span className="pulse card-arrow p-3 rounded-circle text-white d-flex align-items-center justify-content-center">
-                      <img
-                        src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/right-angle-white.svg"
-                        alt=""
-                      />
+                    <span className="pulse m-0 d-flex align-items-center justify-content-center rounded-circle card-arrow-holder">
+                      <span className="pulse card-arrow p-3 rounded-circle text-white d-flex align-items-center justify-content-center">
+                        <img
+                          src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/right-angle-white.svg"
+                          alt=""
+                        />
+                      </span>
                     </span>
-                  </span>
                   </Link>
                 </div>
               </div>
