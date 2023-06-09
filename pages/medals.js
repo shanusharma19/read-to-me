@@ -1,12 +1,21 @@
 import BottomNav from "@/components/BottomNav.js";
 import DashboardUserDetails from "@/components/DashboardUserDetails";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Avatar from "../components/Avatar.js";
 import Notification from "../components/Notification.js";
 
 const medals = () => {
   const { notify, toggle } = useSelector((state) => state.learningPage);
+  const [User, setUser] = useState(null)
+
+  useEffect(() => {
+    var user = JSON.parse(localStorage.getItem('user'));
+    if(user){
+      setUser(user);
+    } 
+  }, []);
+
   return (
     <>
       {toggle && <Avatar />}

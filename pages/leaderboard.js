@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Link from "next/link";
 import Notification from "../components/Notification.js";
@@ -22,7 +22,22 @@ import UDISEmodal from "@/components/UDISEmodal.js";
 
 export default function leaderboard() {
   const [Toggle, setToggle] = useState(false);
+  const [User, setUser] = useState(null)
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    var user = JSON.parse(localStorage.getItem('user'));
+    if(user){
+      setUser(user);
+      dispatch(
+        PROFILE(
+          "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/" +
+            user.userInfo.profileImage
+        )
+      );
+    } 
+  }, []);
+
   const { notify, profile, filter, toggle, brightness } = useSelector(
     (state) => state.learningPage
   );
@@ -72,15 +87,15 @@ export default function leaderboard() {
                         }}
                       ></i>
                     </div>
-                    <p className="text-white text-center mt-1 mb-0">Grade 12</p>
+                    {User && <p className="text-white text-center mt-1 mb-0">{User.userInfo.grade}</p>}
                   </div>
 
                   <div className="col-9">
                     <h4 className="text-white mt-0 mb-2 text-ellipsis font-weight-normal">
                       <span id="userNamePlaceHolder">Shanu</span>
                     </h4>
-                    <p className="text-white mb-1">School Name: </p>
-                    <p className="text-white">State: UTTAR PRADESH</p>
+                    {User && <p className="text-white mb-1">School Name: {User.userInfo.schoolName}</p>}
+                    {User && <p className="text-white">State: {User.userInfo.state}</p>}
                   </div>
                 </div>
               </div>

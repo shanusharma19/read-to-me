@@ -1,12 +1,17 @@
-import {React, useState} from "react";
+import { React, useState, useEffect } from "react";
 import Lottie from "lottie-react";
 import Trophy from "../animations/trophy.json";
 import Link from "next/link";
 import Input from "./Input";
-const Home = ({board, grade}) => {
+const Home = () => {
+  var [User, setUser] = useState(null);
 
-  const [Grade, setGrade] = useState(grade)
-  const [Board, setBoard] = useState(board)
+  useEffect(() => {
+    var user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      setUser(user);
+    }
+  }, []);
 
   return (
     <>
@@ -25,56 +30,72 @@ const Home = ({board, grade}) => {
             data-toggle="popover"
           >
             <label className="wrap">
-              <select
-                onChange={(e)=> {setBoard(e.target.value)}}
-                value= {Board}
-                name="board-dropdown"
-                id="board-dropdown"
-                className="dropdown w-100 pr-1 bg-white"
-              >
-                <option value="Andhra Pradesh Board">
-                  Andhra Pradesh Board
-                </option>
-                <option value="Arunachal Pradesh Board">
-                  Arunachal Pradesh Board
-                </option>
-                <option value="Assam Board">Assam Board</option>
-                <option value="Bihar Board">Bihar Board</option>
-                <option selected="" value="CBSE Board">
-                  CBSE Board
-                </option>
-                <option value="Chhattisgarh Board">Chhattisgarh Board</option>
-                <option value="Delhi Board">Delhi Board</option>
-                <option value="Goa Board">Goa Board</option>
-                <option value="Gujarat Board">Gujarat Board</option>
-                <option value="Haryana Board">Haryana Board</option>
-                <option value="Himachal Pradesh Board">
-                  Himachal Pradesh Board
-                </option>
-                <option value="J&amp;K Board">J&amp;K Board</option>
-                <option value="Jharkhand Board">Jharkhand Board</option>
-                <option value="Karnataka Board">Karnataka Board</option>
-                <option value="Kerala Board">Kerala Board</option>
-                <option value="Madhya Pradesh Board">
-                  Madhya Pradesh Board
-                </option>
-                <option value="Maharashtra Board">Maharashtra Board</option>
-                <option value="Manipur Board">Manipur Board</option>
-                <option value="Meghalaya Board">Meghalaya Board</option>
-                <option value="Mizoram Board">Mizoram Board</option>
-                <option value="Nagaland Board">Nagaland Board</option>
-                <option value="Odisha Board">Odisha Board</option>
-                <option value="Puducherry Board">Puducherry Board</option>
-                <option value="Punjab Board">Punjab Board</option>
-                <option value="Rajasthan Board">Rajasthan Board</option>
-                <option value="Sikkim Board">Sikkim Board</option>
-                <option value="Tamil Nadu Board">Tamil Nadu Board</option>
-                <option value="Telangana Board">Telangana Board</option>
-                <option value="Tripura Board">Tripura Board</option>
-                <option value="Uttar Pradesh Board">Uttar Pradesh Board</option>
-                <option value="Uttarakhand Board">Uttarakhand Board</option>
-                <option value="West Bengal Board">West Bengal Board</option>
-              </select>
+              {User && (
+                <select
+                  onChange={(e) => {
+                    setUser((prev) => {
+                      const newState = {
+                        ...prev,
+                        userInfo: {
+                          ...prev.userInfo,
+                          board: e.target.value,
+                        },
+                      };
+                      localStorage.setItem("user", JSON.stringify(newState));
+                      return newState;
+                    });
+                  }}
+                  value={User.userInfo.board}
+                  name="board-dropdown"
+                  id="board-dropdown"
+                  className="dropdown w-100 pr-1 bg-white"
+                >
+                  <option value="Andhra Pradesh Board">
+                    Andhra Pradesh Board
+                  </option>
+                  <option value="Arunachal Pradesh Board">
+                    Arunachal Pradesh Board
+                  </option>
+                  <option value="Assam Board">Assam Board</option>
+                  <option value="Bihar Board">Bihar Board</option>
+                  <option selected="" value="CBSE Board">
+                    CBSE Board
+                  </option>
+                  <option value="Chhattisgarh Board">Chhattisgarh Board</option>
+                  <option value="Delhi Board">Delhi Board</option>
+                  <option value="Goa Board">Goa Board</option>
+                  <option value="Gujarat Board">Gujarat Board</option>
+                  <option value="Haryana Board">Haryana Board</option>
+                  <option value="Himachal Pradesh Board">
+                    Himachal Pradesh Board
+                  </option>
+                  <option value="J&amp;K Board">J&amp;K Board</option>
+                  <option value="Jharkhand Board">Jharkhand Board</option>
+                  <option value="Karnataka Board">Karnataka Board</option>
+                  <option value="Kerala Board">Kerala Board</option>
+                  <option value="Madhya Pradesh Board">
+                    Madhya Pradesh Board
+                  </option>
+                  <option value="Maharashtra Board">Maharashtra Board</option>
+                  <option value="Manipur Board">Manipur Board</option>
+                  <option value="Meghalaya Board">Meghalaya Board</option>
+                  <option value="Mizoram Board">Mizoram Board</option>
+                  <option value="Nagaland Board">Nagaland Board</option>
+                  <option value="Odisha Board">Odisha Board</option>
+                  <option value="Puducherry Board">Puducherry Board</option>
+                  <option value="Punjab Board">Punjab Board</option>
+                  <option value="Rajasthan Board">Rajasthan Board</option>
+                  <option value="Sikkim Board">Sikkim Board</option>
+                  <option value="Tamil Nadu Board">Tamil Nadu Board</option>
+                  <option value="Telangana Board">Telangana Board</option>
+                  <option value="Tripura Board">Tripura Board</option>
+                  <option value="Uttar Pradesh Board">
+                    Uttar Pradesh Board
+                  </option>
+                  <option value="Uttarakhand Board">Uttarakhand Board</option>
+                  <option value="West Bengal Board">West Bengal Board</option>
+                </select>
+              )}
             </label>
           </form>
         </div>
@@ -86,26 +107,40 @@ const Home = ({board, grade}) => {
             data-toggle="popover"
           >
             <label className="wrap">
-              <select
-              onChange={(e)=> {setGrade(e.target.defaultValue)}}
-              value= {Grade}
-                name="grade-dropdown"
-                id="grade-dropdown"
-                className="dropdown w-100 pr-1 bg-white"
-              >
-                <option defaultValue="Grade 1">Grade 1</option>
-                <option defaultValue="Grade 2">Grade 2</option>
-                <option defaultValue="Grade 3">Grade 3</option>
-                <option defaultValue="Grade 4">Grade 4</option>
-                <option defaultValue="Grade 5">Grade 5</option>
-                <option defaultValue="Grade 6">Grade 6</option>
-                <option defaultValue="Grade 7">Grade 7</option>
-                <option defaultValue="Grade 8">Grade 8</option>
-                <option defaultValue="Grade 9">Grade 9</option>
-                <option defaultValue="Grade 10">Grade 10</option>
-                <option defaultValue="Grade 11">Grade 11</option>
-                <option defaultValue="Grade 12">Grade 12</option>
-              </select>
+              {User && (
+                <select
+                  onChange={(e) => {
+                    setUser((prev) => {
+                      const newState = {
+                        ...prev,
+                        userInfo: {
+                          ...prev.userInfo,
+                          grade: e.target.value,
+                        },
+                      };
+                      localStorage.setItem("user", JSON.stringify(newState));
+                      return newState;
+                    });
+                  }}
+                  value={User.userInfo.grade}
+                  name="grade-dropdown"
+                  id="grade-dropdown"
+                  className="dropdown w-100 pr-1 bg-white"
+                >
+                  <option defaultValue="Grade 1">Grade 1</option>
+                  <option defaultValue="Grade 2">Grade 2</option>
+                  <option defaultValue="Grade 3">Grade 3</option>
+                  <option defaultValue="Grade 4">Grade 4</option>
+                  <option defaultValue="Grade 5">Grade 5</option>
+                  <option defaultValue="Grade 6">Grade 6</option>
+                  <option defaultValue="Grade 7">Grade 7</option>
+                  <option defaultValue="Grade 8">Grade 8</option>
+                  <option defaultValue="Grade 9">Grade 9</option>
+                  <option defaultValue="Grade 10">Grade 10</option>
+                  <option defaultValue="Grade 11">Grade 11</option>
+                  <option defaultValue="Grade 12">Grade 12</option>
+                </select>
+              )}
             </label>
           </form>
         </div>

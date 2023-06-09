@@ -8,22 +8,19 @@ import Avatar from "../components/Avatar.js";
 import Loader from "../components/Loader.js";
 import BottomNav from "../components/BottomNav.js";
 import Home from "../components/Home.js";
-import {useDispatch} from 'react-redux';
-import {PROFILE} from '../actions/learningPageActions.js'
+import { useDispatch } from "react-redux";
+import { PROFILE } from "../actions/learningPageActions.js";
 
 export default function learningChannel() {
-  
-  const [User, setUser] = useState(null)
 
   useEffect(() => {
-    var user = JSON.parse(localStorage.getItem('user'));
-    setUser(user);
-    if(user && profile===""){
+    var user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
       let img = "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/" + user.userInfo.profileImage;
       dispatch(PROFILE(img));
-    } 
+    }
   }, []);
-  
+
   const dispatch = useDispatch();
   const { notify, profile, filter, toggle } = useSelector(
     (state) => state.learningPage
@@ -31,7 +28,7 @@ export default function learningChannel() {
   return (
     <>
       <Loader Display={"none"}></Loader>
-      {toggle && <Avatar />}
+      {toggle && <Avatar/>}
       <div
         id="learn"
         // style={{ background: "rgba(0,0,0,0.8)" }}
@@ -41,7 +38,7 @@ export default function learningChannel() {
         ) : (
           <>
             <DashboardUserDetails />
-            {User && <DashboardContent board = {User.userInfo.board} grade={User.userInfo.grade} Content={Home}></DashboardContent>}
+            <DashboardContent Content={Home}></DashboardContent>
           </>
         )}
       </div>

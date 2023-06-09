@@ -15,12 +15,14 @@ import "@/styles/BottomNav.css";
 import "@/styles/Medals.css";
 import "@/styles/Leaderboard.css";
 import "@/styles/EarnPoints.css";
+import "@/styles/Profile.css";
 
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
-import store from '../store.js'
+import store from "../store.js";
 
 export default function App({ Component, pageProps }) {
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -31,9 +33,7 @@ export default function App({ Component, pageProps }) {
 
   return (
     <>
-      <Provider store={store}>
-        <Component {...pageProps} />
-      </Provider>
+      <Provider store={store}><Component {...pageProps} /></Provider>
     </>
   );
 }

@@ -19,7 +19,10 @@ export default function myPlans() {
         style={{ paddingBottom: "75px" }}
       >
         <Header />
-        <span className="back-arrow-holder" onClick={() => router.push("/learningChannel")}>
+        <span
+          className="back-arrow-holder"
+          onClick={() => router.push("/learningChannel")}
+        >
           <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg" />
         </span>
         <HelpIcon />
@@ -85,7 +88,7 @@ export default function myPlans() {
             </div>
           </a>
 
-          <a href="profile-view" className="text-dark text-decoration-none">
+          <Link href="/profile" className="text-dark text-decoration-none">
             <div className="row py-2">
               <div className="col">
                 <div
@@ -97,17 +100,21 @@ export default function myPlans() {
                     <div className="col-2 align-self-center">
                       <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/my-profile.svg" />
                     </div>
+
                     <div className="col-8 align-self-center py-3 border-right">
                       <p className="h5 mb-0 font-weight-normal">My Profile</p>
                     </div>
+
                     <div className="col-2 align-self-center text-center">
-                      <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/Select-or-Next-Arrow.svg" />
+                      
+                        <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/Select-or-Next-Arrow.svg" />
+                      
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </a>
+          </Link>
 
           <div className="row py-2" id="myProgressNav">
             <div className="col">
@@ -240,7 +247,7 @@ export default function myPlans() {
             </div>
           </a>
         </div>
-        <BottomNav ></BottomNav>
+        <BottomNav></BottomNav>
       </div>
     </>
   );

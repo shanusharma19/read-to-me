@@ -6,6 +6,7 @@ const initialState = {
         brightness: "rgb(0,0,0,0.0)",
         details: null,
   }
+
   function learningPage(state = initialState, action) {
     switch (action.type) {
         case 'CHANGE_PROFILE': {
@@ -48,4 +49,5 @@ const initialState = {
           return state
     }
   }
+    
   export default learningPage

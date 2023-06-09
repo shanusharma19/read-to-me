@@ -2,9 +2,17 @@ import React, { useEffect, useState } from "react";
 import {useDispatch} from 'react-redux';
 import {PROFILE, TOGGLE, FILTER} from '../actions/learningPageActions.js'
 
-const Avatar = (
-  // {setProfile, setToggle, setFilter }
-  ) => {
+const Avatar = () => {
+
+  const [User, setUser] = useState(null)
+
+  useEffect(() => {
+    var user = JSON.parse(localStorage.getItem('user'));
+    if(user){
+      setUser(user);
+    } 
+  }, []);
+
   const dispatch = useDispatch();
   const [Tick, setTick] = useState();
   const avatars = [
@@ -137,6 +145,17 @@ const Avatar = (
                   data-action-btn=""
                   className="btn btn-success btn-lg rtr-btn mx-2 my-0 p-3 w-50"
                   onClick={()=> {
+                    setUser((prev) => {
+                      const newState = {
+                        ...prev,
+                        userInfo: {
+                          ...prev.userInfo,
+                          profileImage: Tick.split('profilePic/')[1],
+                        },
+                      };
+                      localStorage.setItem("user", JSON.stringify(newState));
+                      return newState;
+                    });
                     Tick && dispatch(PROFILE(Tick))
                     dispatch(TOGGLE(false));
                     dispatch(FILTER("brightness(100%)"))

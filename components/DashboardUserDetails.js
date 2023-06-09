@@ -1,16 +1,38 @@
 import React, { useEffect, useState } from "react";
-import {useDispatch, useSelector} from 'react-redux';
+import { useDispatch, useSelector } from "react-redux";
 import Lottie from "lottie-react";
 import groovyWalkAnimation from "../animations/star.json";
 import medalAnimation from "../animations/medal.json";
 import Link from "next/link";
-import {NOTIFY, PROFILE, TOGGLE, FILTER} from '../actions/learningPageActions.js'
+import {
+  NOTIFY,
+  PROFILE,
+  TOGGLE,
+  FILTER,
+} from "../actions/learningPageActions.js";
 import LoginHeader from "./LoginHeader";
 
 const DashboardUserDetails = () => {
+  const [User, setUser] = useState(null);
+
+  useEffect(() => {
+    var user = JSON.parse(localStorage.getItem("user"));
+    if (user) {
+      setUser(user);
+      dispatch(
+        PROFILE(
+          "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/" +
+            user.userInfo.profileImage
+        )
+      );
+    }
+  }, []);
+
   const dispatch = useDispatch();
-  const {notify, profile, filter, toggle, details} = useSelector(state => state.learningPage);
-  
+  const { notify, profile, filter, toggle, details } = useSelector(
+    (state) => state.learningPage
+  );
+
   return (
     <>
       <div
@@ -21,7 +43,7 @@ const DashboardUserDetails = () => {
         data-aos-delay="0"
         style={{ paddingBottom: "75px" }}
       >
-        <LoginHeader/>
+        <LoginHeader />
         <div
           className="container-fluid green-gradient pt-3 pb-5 position-fixed"
           style={{
@@ -65,25 +87,26 @@ const DashboardUserDetails = () => {
                 <div id="pointsStar" className="d-inline-flex pl-3 ">
                   <div className="row">
                     <div className="col-5 pr-0">
-                    <Link href="/leaderboard">
-                      <div
-                        className="points-icon-holde "
-                        data-url="earn-points"
-                        style={{
-                          position: "fixed", left: "-10px"
-                        }}
-                      >
-                        <Lottie
-                          id="star"
+                      <Link href="/leaderboard">
+                        <div
+                          className="points-icon-holde "
+                          data-url="earn-points"
                           style={{
-                            width: "46px",
-                            // transform: "translateY(-16%) translateX(-416%)",
+                            position: "fixed",
+                            left: "-10px",
                           }}
-                          animationData={groovyWalkAnimation}
-                          loop={true}
-                        />
-                      </div>
-                     </Link> 
+                        >
+                          <Lottie
+                            id="star"
+                            style={{
+                              width: "46px",
+                              // transform: "translateY(-16%) translateX(-416%)",
+                            }}
+                            animationData={groovyWalkAnimation}
+                            loop={true}
+                          />
+                        </div>
+                      </Link>
                     </div>
                     <div
                       className="col pl-1 "

@@ -6,11 +6,23 @@ import { validateEmail, phonenumber } from "../utils/validate.js";
 import Header from "../components/Header.js";
 
 export default function login() {
-  const { push } = useRouter();
   const [Phone, setPhone] = useState("");
   const [Email, setEmail] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
+  const { push } = useRouter();
+  const [check, setcheck] = useState(false);
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("user")) !== null) {
+      push("/learningChannel");
+    }
+    else {
+      setcheck((prev) => {
+        prev = true;
+        return prev;
+      });
+    }
+  }, []);
 
   const fetcher = async () => {
     const options = {
@@ -60,7 +72,7 @@ export default function login() {
 
   return (
     <>
-      <div
+      {check && (<div
         id="body"
         className="light-bg position-relative iti-mobile"
         data-aos-easing="ease"
@@ -202,6 +214,7 @@ export default function login() {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 }

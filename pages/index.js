@@ -1,6 +1,23 @@
+import React, { useState, useEffect} from "react";
 import Head from "next/head";
 import Link from "next/link";
+import { useRouter } from "next/router";
+
 export default function Home() {
+  const { push } = useRouter();
+  const [check, setcheck] = useState(false);
+  useEffect(() => {
+    if (JSON.parse(localStorage.getItem("user")) !== null) {
+      push("/learningChannel");
+    }
+    else {
+      setcheck((prev) => {
+        prev = true;
+        return prev;
+      });
+    }
+  }, []);
+
   return (
     <>
       <Head>
@@ -10,7 +27,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div
+      { check && (<div
         id="body"
         className="main light-bg position-relative main"
         data-aos-easing="ease"
@@ -27,7 +44,11 @@ export default function Home() {
 
         <div className="container-fluid">
           <div className="row pb-5">
-            <div id="homeSlider" className="carousel slide" data-ride="carousel">
+            <div
+              id="homeSlider"
+              className="carousel slide"
+              data-ride="carousel"
+            >
               <div className="carousel-inner">
                 <div className="carousel-item active">
                   <h1
@@ -50,7 +71,11 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="container-fluid" data-aos="fade-up" data-aos-delay="150">
+        <div
+          className="container-fluid"
+          data-aos="fade-up"
+          data-aos-delay="150"
+        >
           <div className="row pb-5">
             <div className="col text-center py-3">
               <Link
@@ -64,6 +89,7 @@ export default function Home() {
           </div>
         </div>
       </div>
+      )}
     </>
   );
 }
