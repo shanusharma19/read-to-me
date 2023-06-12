@@ -1,23 +1,19 @@
-import BottomNav from "@/components/BottomNav.js";
-import DashboardUserDetails from "@/components/DashboardUserDetails";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
-import Avatar from "../components/Avatar.js";
-import Notification from "../components/Notification.js";
+import Link from "next/link";
 import Header from "@/components/Header.js";
 import Router from "next/router.js";
 
 const profile = () => {
   // const router = useRouter;
-  //   const { notify, toggle } = useSelector((state) => state.learningPage);
-  //   const [User, setUser] = useState(null)
+    const [User, setUser] = useState(null)
 
-  //   useEffect(() => {
-  //     var user = JSON.parse(localStorage.getItem('user'));
-  //     if(user){
-  //       setUser(user);
-  //     }
-  //   }, []);
+    useEffect(() => {
+      var user = JSON.parse(localStorage.getItem('user'));
+      if(user){
+        setUser(user);
+      }
+    }, []);
 
   return (
     <>
@@ -29,7 +25,7 @@ const profile = () => {
         data-aos-delay="0"
       >
         <Header />
-        <div className="color2-bg">
+        { User && <div className="color2-bg">
           <div className="container-fluid">
             <div className="row">
               <div className="col my-3">
@@ -58,8 +54,9 @@ const profile = () => {
                     </div>
                     <div className="row">
                       <div className="col text-center">
-                        <p className="text-center lead mb-2">Shanu Sharma</p>
+                        <p className="text-center lead mb-2">{User.user.userFirstName}</p>
                         <p className="text-center mb-2"></p>
+                        <Link href="profile-edit">
                         <button
                           type="button"
                           className="btn btn-outline-success my-2"
@@ -67,6 +64,7 @@ const profile = () => {
                         >
                           Edit Profile
                         </button>
+                        </Link>
                       </div>
                     </div>
                     <div className="row border-top pt-2">
@@ -74,17 +72,17 @@ const profile = () => {
                         <p className="text-center font-weight-bold green-color my-1">
                           MOBILE NUMBER
                         </p>
-                        <p>8192078901</p>
+                        <p>{User.user.userPhone}</p>
                         <p className="text-center font-weight-bold green-color my-1">
                           GRADE
                         </p>
-                        <p>Grade 10</p>
+                        <p>{User.userInfo.grade}</p>
                         <input type="hidden" id="grade" value="Grade 10" />
 
                         <p className="text-center font-weight-bold green-color my-1">
                           SCHOOL BOARD
                         </p>
-                        <p>CBSE Board</p>
+                        <p>{User.userInfo.board}</p>
                         <input type="hidden" id="board" value="CBSE Board" />
                       </div>
                     </div>
@@ -94,12 +92,12 @@ const profile = () => {
                           SCHOOL LOCATION - STATE
                         </p>
 
-                        <p>UTTAR PRADESH</p>
+                        <p>{User.userInfo.state}</p>
 
                         <p className="text-center font-weight-bold green-color my-1">
                           SCHOOL LOCATION - COUNTRY
                         </p>
-                        <p className="text-uppercase">India</p>
+                        <p className="text-uppercase">{User.userInfo.country}</p>
                       </div>
                     </div>
                   </div>
@@ -107,7 +105,7 @@ const profile = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>}
       </div>
     </>
   );

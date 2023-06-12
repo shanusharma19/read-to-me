@@ -1,0 +1,11 @@
+.edit-profile-btn {
+    min-width: 125px;
+}
+.btn-outline-success {
+    color: #8bc34a;
+    border-color: #8bc34a;
+}
+select {
+    text-align: center;
+    text-align-last: left;
+}

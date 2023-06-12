@@ -81,7 +81,7 @@ const DashboardUserDetails = () => {
             </div>
             <div className="col-9">
               <h4 className="text-white mt-0 mb-3 text-ellipsis font-weight-normal">
-                <span id="userNamePlaceHolder">Shanu</span>
+                { User && <span id="userNamePlaceHolder">{User.user.userFirstName}</span>}
               </h4>
               <div style={{ transform: "translateX(10%)" }} className="row">
                 <div id="pointsStar" className="d-inline-flex pl-3 ">

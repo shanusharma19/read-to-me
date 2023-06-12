@@ -16,6 +16,7 @@ import "@/styles/Medals.css";
 import "@/styles/Leaderboard.css";
 import "@/styles/EarnPoints.css";
 import "@/styles/Profile.css";
+import "@/styles/ProfileEdit.css";
 
 import { useEffect, useState } from "react";
 import { Provider } from "react-redux";
