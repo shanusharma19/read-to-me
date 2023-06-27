@@ -4,7 +4,6 @@ import Header from "@/components/Header.js";
 import Router from "next/router.js";
 
 const profileEdit = () => {
-  // const router = useRouter;
   const [User, setUser] = useState(null);
 
   useEffect(() => {
@@ -13,6 +12,10 @@ const profileEdit = () => {
       setUser(user);
     }
   }, []);
+
+  const save = () => {
+    localStorage.setItem("user", JSON.stringify(User));
+  }
 
   return (
     <>
@@ -33,15 +36,8 @@ const profileEdit = () => {
                     <div className="card-body py-0 px-15 rounded-lg ">
                       <div className="row">
                         <div className="col">
-                          <span
-                            onClick={() => Router.back()}
-                            id="profileBackBtn"
-                            className="py-3 position-absolute"
-                          >
-                            <img src="https://assets.englishhelper.com/righttoread/v8.87.38.20230516/assets/images/back-arrow-grey.svg" />
-                          </span>
                           <h1 className="h4 py-3 m-0 text-center font-weight-normal green-color">
-                            My Profile
+                            Edit Profile
                           </h1>
                         </div>
                       </div>
@@ -61,13 +57,19 @@ const profileEdit = () => {
                         <div className="row">
                           <div className="col text-center">
                             <p
-                              onClick={() => Router.back()}
+                              onClick={() => {
+                                Router.push({ pathname: '/profile'})
+                              }}
                               className="btn btn-outline-danger my-2 mx-1 edit-profile-btn"
                               id="gotoProfile"
                             >
                               Cancel
                             </p>
                             <button
+                              onClick={() => {
+                                save();
+                                Router.push({ pathname: '/profile'})
+                              }}
                               type="button"
                               className="btn btn-outline-success my-2 mx-1 edit-profile-btn"
                               id="studentEditProfilesubmit"
@@ -95,13 +97,25 @@ const profileEdit = () => {
                                   </div>
                                 </div>
                                 <input
+                                  onChange={(e) => {
+                                    setUser((prev) => {
+                                      const newState = {
+                                        ...prev,
+                                        user: {
+                                          ...prev.user,
+                                          userPhone: e.target.value,
+                                        },
+                                      };
+                                      return newState;
+                                    });
+                                  }}
                                   autoComplete="off"
                                   type="text"
                                   name="userPhone"
                                   className="form-control"
                                   id="studentEditProfile_userPhone"
                                   data-countrycode="+91"
-                                  value="+918192078901"
+                                  value={User.user.userPhone}
                                   placeholder="Please enter your mobile number"
                                   data-intl-tel-input-id="0"
                                   style={{ paddingLeft: "74px" }}
@@ -129,162 +143,235 @@ const profileEdit = () => {
                             <div className="form-group">
                               <label for="userMailId">Email ID</label>
                               <input
+                                onChange={(e) => {
+                                  setUser((prev) => {
+                                    const newState = {
+                                      ...prev,
+                                      user: {
+                                        ...prev.user,
+                                        userMailId: e.target.value,
+                                      },
+                                    };
+                                    return newState;
+                                  });
+                                }}
                                 type="text"
                                 role="presentation"
                                 autoComplete="off"
                                 name="userMailId"
                                 className="form-control"
                                 id="studentEditProfile_userMailId"
-                                value=""
+                                value={User.user.userMailId}
                                 placeholder="Please enter your Email ID"
                               />
                             </div>
                             <div className="form-group" id="courseDiv">
                               <label for="course">Grade / Class </label>
-                              <select
-                                className="form-control"
-                                id="studentSelectGrade_course"
-                                name="grade"
-                              >
-                                <option value="0">Select your grade</option>
-                                <option value="Grade 1">Grade 1</option>
-                                <option value="Grade 2">Grade 2</option>
-                                <option value="Grade 3">Grade 3</option>
-                                <option value="Grade 4">Grade 4</option>
-                                <option value="Grade 5">Grade 5</option>
-                                <option value="Grade 6">Grade 6</option>
-                                <option value="Grade 7">Grade 7</option>
-                                <option value="Grade 8">Grade 8</option>
-                                <option value="Grade 9">Grade 9</option>
-                                <option value="Grade 10" selected="">
-                                  Grade 10
-                                </option>
-                                <option value="Grade 11">Grade 11</option>
-                                <option value="Grade 12">Grade 12</option>
-                              </select>
+                              {User && (
+                                <select
+                                  onChange={(e) => {
+                                    setUser((prev) => {
+                                      const newState = {
+                                        ...prev,
+                                        userInfo: {
+                                          ...prev.userInfo,
+                                          grade: e.target.value,
+                                        },
+                                      };
+                                      return newState;
+                                    });
+                                  }}
+                                  value={User.userInfo.grade}
+                                  className="form-control"
+                                  id="studentSelectGrade_course"
+                                  name="grade"
+                                >
+                                  <option value="0">Select your grade</option>
+                                  <option value="Grade 1">Grade 1</option>
+                                  <option value="Grade 2">Grade 2</option>
+                                  <option value="Grade 3">Grade 3</option>
+                                  <option value="Grade 4">Grade 4</option>
+                                  <option value="Grade 5">Grade 5</option>
+                                  <option value="Grade 6">Grade 6</option>
+                                  <option value="Grade 7">Grade 7</option>
+                                  <option value="Grade 8">Grade 8</option>
+                                  <option value="Grade 9">Grade 9</option>
+                                  <option value="Grade 10" selected="">
+                                    Grade 10
+                                  </option>
+                                  <option value="Grade 11">Grade 11</option>
+                                  <option value="Grade 12">Grade 12</option>
+                                </select>
+                              )}
                             </div>
 
                             <div className="form-group" id="boardDiv">
                               <label for="course">School Board</label>
 
-                              <select
-                                className="form-control"
-                                id="studentSelectGrade_board"
-                                name="userBoard"
-                              >
-                                <option value="Andhra Pradesh Board">
-                                  Andhra Pradesh Board
-                                </option>
-                                <option value="Arunachal Pradesh Board">
-                                  Arunachal Pradesh Board
-                                </option>
-                                <option value="Assam Board">Assam Board</option>
-                                <option value="Bihar Board">Bihar Board</option>
-                                <option value="CBSE Board" selected="">
-                                  CBSE Board
-                                </option>
-                                <option value="Chhattisgarh Board">
-                                  Chhattisgarh Board
-                                </option>
-                                <option value="Delhi Board">Delhi Board</option>
-                                <option value="Goa Board">Goa Board</option>
-                                <option value="Gujarat Board">
-                                  Gujarat Board
-                                </option>
-                                <option value="Haryana Board">
-                                  Haryana Board
-                                </option>
-                                <option value="Himachal Pradesh Board">
-                                  Himachal Pradesh Board
-                                </option>
-                                <option value="J&amp;K Board">
-                                  J&amp;K Board
-                                </option>
-                                <option value="Jharkhand Board">
-                                  Jharkhand Board
-                                </option>
-                                <option value="Karnataka Board">
-                                  Karnataka Board
-                                </option>
-                                <option value="Kerala Board">
-                                  Kerala Board
-                                </option>
-                                <option value="Madhya Pradesh Board">
-                                  Madhya Pradesh Board
-                                </option>
-                                <option value="Maharashtra Board">
-                                  Maharashtra Board
-                                </option>
-                                <option value="Manipur Board">
-                                  Manipur Board
-                                </option>
-                                <option value="Meghalaya Board">
-                                  Meghalaya Board
-                                </option>
-                                <option value="Mizoram Board">
-                                  Mizoram Board
-                                </option>
-                                <option value="Nagaland Board">
-                                  Nagaland Board
-                                </option>
-                                <option value="Odisha Board">
-                                  Odisha Board
-                                </option>
-                                <option value="Puducherry Board">
-                                  Puducherry Board
-                                </option>
-                                <option value="Punjab Board">
-                                  Punjab Board
-                                </option>
-                                <option value="Rajasthan Board">
-                                  Rajasthan Board
-                                </option>
-                                <option value="Sikkim Board">
-                                  Sikkim Board
-                                </option>
-                                <option value="Tamil Nadu Board">
-                                  Tamil Nadu Board
-                                </option>
-                                <option value="Telangana Board">
-                                  Telangana Board
-                                </option>
-                                <option value="Tripura Board">
-                                  Tripura Board
-                                </option>
-                                <option value="Uttar Pradesh Board">
-                                  Uttar Pradesh Board
-                                </option>
-                                <option value="Uttarakhand Board">
-                                  Uttarakhand Board
-                                </option>
-                                <option value="West Bengal Board">
-                                  West Bengal Board
-                                </option>
-                              </select>
+                              {User && (
+                                <select
+                                  onChange={(e) => {
+                                    setUser((prev) => {
+                                      const newState = {
+                                        ...prev,
+                                        userInfo: {
+                                          ...prev.userInfo,
+                                          board: e.target.value,
+                                        },
+                                      };
+                                      return newState;
+                                    });
+                                  }}
+                                  value={User.userInfo.board}
+                                  className="form-control"
+                                  id="studentSelectGrade_board"
+                                  name="userBoard"
+                                >
+                                  <option value="Andhra Pradesh Board">
+                                    Andhra Pradesh Board
+                                  </option>
+                                  <option value="Arunachal Pradesh Board">
+                                    Arunachal Pradesh Board
+                                  </option>
+                                  <option value="Assam Board">
+                                    Assam Board
+                                  </option>
+                                  <option value="Bihar Board">
+                                    Bihar Board
+                                  </option>
+                                  <option value="CBSE Board" selected="">
+                                    CBSE Board
+                                  </option>
+                                  <option value="Chhattisgarh Board">
+                                    Chhattisgarh Board
+                                  </option>
+                                  <option value="Delhi Board">
+                                    Delhi Board
+                                  </option>
+                                  <option value="Goa Board">Goa Board</option>
+                                  <option value="Gujarat Board">
+                                    Gujarat Board
+                                  </option>
+                                  <option value="Haryana Board">
+                                    Haryana Board
+                                  </option>
+                                  <option value="Himachal Pradesh Board">
+                                    Himachal Pradesh Board
+                                  </option>
+                                  <option value="J&amp;K Board">
+                                    J&amp;K Board
+                                  </option>
+                                  <option value="Jharkhand Board">
+                                    Jharkhand Board
+                                  </option>
+                                  <option value="Karnataka Board">
+                                    Karnataka Board
+                                  </option>
+                                  <option value="Kerala Board">
+                                    Kerala Board
+                                  </option>
+                                  <option value="Madhya Pradesh Board">
+                                    Madhya Pradesh Board
+                                  </option>
+                                  <option value="Maharashtra Board">
+                                    Maharashtra Board
+                                  </option>
+                                  <option value="Manipur Board">
+                                    Manipur Board
+                                  </option>
+                                  <option value="Meghalaya Board">
+                                    Meghalaya Board
+                                  </option>
+                                  <option value="Mizoram Board">
+                                    Mizoram Board
+                                  </option>
+                                  <option value="Nagaland Board">
+                                    Nagaland Board
+                                  </option>
+                                  <option value="Odisha Board">
+                                    Odisha Board
+                                  </option>
+                                  <option value="Puducherry Board">
+                                    Puducherry Board
+                                  </option>
+                                  <option value="Punjab Board">
+                                    Punjab Board
+                                  </option>
+                                  <option value="Rajasthan Board">
+                                    Rajasthan Board
+                                  </option>
+                                  <option value="Sikkim Board">
+                                    Sikkim Board
+                                  </option>
+                                  <option value="Tamil Nadu Board">
+                                    Tamil Nadu Board
+                                  </option>
+                                  <option value="Telangana Board">
+                                    Telangana Board
+                                  </option>
+                                  <option value="Tripura Board">
+                                    Tripura Board
+                                  </option>
+                                  <option value="Uttar Pradesh Board">
+                                    Uttar Pradesh Board
+                                  </option>
+                                  <option value="Uttarakhand Board">
+                                    Uttarakhand Board
+                                  </option>
+                                  <option value="West Bengal Board">
+                                    West Bengal Board
+                                  </option>
+                                </select>
+                              )}
                             </div>
 
                             <div className="form-group">
                               <label for="studentUdise">
-                                School UDISE Code{" "}
+                                School UDISE Code
                               </label>
                               <input
+                              onChange={(e) => {
+                                setUser((prev) => {
+                                  const newState = {
+                                    ...prev,
+                                    userInfo: {
+                                      ...prev.userInfo,
+                                      udise: e.target.value,
+                                    },
+                                  };
+                                  return newState;
+                                });
+                              }}
                                 autoComplete="off"
                                 type="text"
                                 className="form-control remoteCheck school"
                                 id="studentUdise"
                                 name="rtmseSchoolCode"
-                                value=""
+                                value={User.userInfo.udise}
                                 placeholder="Please enter your School UDISE code"
                               />
                             </div>
 
                             <div className="form-group">
                               <label for="state">School Location - State</label>
-                              <select
+                              {User && (
+                                <select
+                                  onChange={(e) => {
+                                    setUser((prev) => {
+                                      const newState = {
+                                        ...prev,
+                                        userInfo: {
+                                          ...prev.userInfo,
+                                          state: e.target.value,
+                                        },
+                                      };
+                                      return newState;
+                                    });
+                                  }}
+                                  value={User.userInfo.state}
                                 className="form-control"
                                 id="state"
                                 name="state"
-                                onchange='searchSchool(["UserDistrict"])'
                               >
                                 <option value="ANDAMAN AND NICOBAR ISLANDS">
                                   ANDAMAN AND NICOBAR ISLANDS
@@ -343,6 +430,7 @@ const profileEdit = () => {
                                 <option value="WEST BENGAL">WEST BENGAL</option>
                                 <option value="LADAKH">LADAKH</option>
                               </select>
+                              )}
                             </div>
 
                             <div className="form-group">

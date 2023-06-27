@@ -34,7 +34,7 @@ const profile = () => {
                     <div className="row">
                       <div className="col">
                         <span
-                          onClick={() => Router.back()}
+                          onClick={() => Router.push({ pathname: '/myPlans'})}
                           id="profileBackBtn"
                           className="py-3 position-absolute"
                         >
