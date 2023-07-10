@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import Header from "@/components/Header.js";
 import Router from "next/router.js";
 
-const profileEdit = () => {
+const ProfileEdit = () => {
   const [User, setUser] = useState(null);
 
   useEffect(() => {
@@ -476,4 +476,4 @@ const profileEdit = () => {
   );
 };
 
-export default profileEdit;
+export default ProfileEdit;

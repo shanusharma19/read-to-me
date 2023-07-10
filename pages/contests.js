@@ -1,17 +1,16 @@
 import Header from "@/components/Header";
 import HelpIcon from "@/components/HelpIcon";
 import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import Router from "next/router.js";
 import BottomNav from "@/components/BottomNav";
 
-export default function earnPoints() {
-  const router = useRouter();
+export default function Contests() {
   return (
     <>
       <Header />
       <span
         className="back-arrow-holder"
-        onClick={() => router.push("/learningChannel")}
+        onClick={() => Router.push({ pathname: '/learningChannel'})}
       >
         <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg" />
       </span>

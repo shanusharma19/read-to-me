@@ -10,7 +10,7 @@ import BottomNav from "../components/BottomNav.js";
 import Home from "../components/Home.js";
 import Points from "../components/Points.js";
 
-export default function earnPoints() {
+export default function EarnPoints() {
   const { notify, profile, filter, toggle } = useSelector(
     (state) => state.learningPage
   );

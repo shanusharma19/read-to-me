@@ -4,8 +4,7 @@ import Link from "next/link";
 import Header from "@/components/Header.js";
 import Router from "next/router.js";
 
-const profile = () => {
-  // const router = useRouter;
+const Profile = () => {
     const [User, setUser] = useState(null)
 
     useEffect(() => {
@@ -111,4 +110,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default Profile;

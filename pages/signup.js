@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { validateEmail, phonenumber } from "../utils/validate.js";
-import { useRouter } from "next/router";
+import Router from "next/router.js";
 import Header from "../components/Header.js";
-export default function login() {
 
-  const router = useRouter();
+ const Signup = () => {
+
   const [Display, setDisplay] = useState('block');
   const [List, setList] = useState(null);
   const [Email, setEmail] = useState("");
@@ -52,7 +52,7 @@ export default function login() {
       data-aos-delay="0"
     >
       <Header />
-      <span className="back-arrow-holder" onClick={() => router.back()}>
+      <span className="back-arrow-holder" onClick={() => Router.back()}>
         <img
           src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg"
           alt=""
@@ -508,3 +508,5 @@ export default function login() {
     </div>
   );
 }
+
+export default Signup

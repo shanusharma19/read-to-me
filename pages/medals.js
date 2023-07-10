@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import Avatar from "../components/Avatar.js";
 import Notification from "../components/Notification.js";
 
-const medals = () => {
+const Medals = () => {
   const { notify, toggle } = useSelector((state) => state.learningPage);
   const [User, setUser] = useState(null)
 
@@ -167,4 +167,4 @@ const medals = () => {
   );
 };
 
-export default medals;
+export default Medals;

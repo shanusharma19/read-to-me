@@ -4,10 +4,9 @@ import Header from "../components/Header.js";
 import Modal from "../components/Modal.js";
 import encryptPasswordField from "../utils/Encryption.js";
 import generateString from "../utils/generate.js";
-import { useRouter } from "next/router";
+import Router from "next/router";
 
-export default function loginPassword() {
-  const { router, push } = useRouter();
+export default function LoginPassword() {
   const [Filter, setFilter] = useState("brightness(100%)");
   const [Toggle, setToggle] = useState(false);
   const [Password, setPassword] = useState("");
@@ -16,7 +15,7 @@ export default function loginPassword() {
   const [check, setcheck] = useState(false);
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("user")) !== null) {
-      push("/learningChannel");
+      Router.push({ pathname: '/learningChannel'})
     } else {
       setcheck((prev) => {
         prev = true;
@@ -61,10 +60,10 @@ export default function loginPassword() {
     const res = await fetch("/checkLogin", options);
     const data = await res.json();
 
-    if ("errorMsg" in data) push("/login-password");
+    if ("errorMsg" in data) Router.push({ pathname: '/login-password'})
     else {
       localStorage.setItem("user", JSON.stringify(data));
-      push("/learningChannel");
+      Router.push({ pathname: '/learningChannel'})
     }
   };
 
@@ -100,7 +99,7 @@ export default function loginPassword() {
         >
           <Header />
 
-          <span className="back-arrow-holder" onClick={() => push("/login")}>
+          <span className="back-arrow-holder" onClick={() => Router.push({ pathname: '/login'})}>
             <img
               src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg"
               alt=""

@@ -11,7 +11,7 @@ import Home from "../components/Home.js";
 import { useDispatch } from "react-redux";
 import { PROFILE } from "../actions/learningPageActions.js";
 
-export default function learningChannel() {
+export default function LearningChannel() {
 
   useEffect(() => {
     var user = JSON.parse(localStorage.getItem("user"));

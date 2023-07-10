@@ -119,9 +119,8 @@ const Avatar = () => {
               <div id="avatars" className="p-3">
                 <div className="row justify-content-around">
 
-
-                  {avatars.map((avatar) => (
-                    <div className="col-4"
+                  {avatars.map((avatar, index) => (
+                    <div className="col-4" key={index}
                      onClick={()=>setTick(avatar.img)}
                     >
                       <label className="avatars">

@@ -1,20 +1,19 @@
 import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import Router from "next/navigation";
 import { validateEmail, phonenumber } from "../utils/validate.js";
 import Header from "../components/Header.js";
 
-export default function login() {
+export default function Login() {
   const [Phone, setPhone] = useState("");
   const [Email, setEmail] = useState("");
   const [submitButtonDisabled, setSubmitButtonDisabled] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
-  const { push } = useRouter();
   const [check, setcheck] = useState(false);
   useEffect(() => {
     if (JSON.parse(localStorage.getItem("user")) !== null) {
-      push("/learningChannel");
+      Router.push({ pathname: '/learningChannel'})
     }
     else {
       setcheck((prev) => {
@@ -47,8 +46,8 @@ export default function login() {
     const res = await fetch("/checkAvailability", options);
     const data = await res.json();
 
-    if ("successMsg" in data) push("/signup");
-    else push("/login-password");
+    if ("successMsg" in data) Router.push({ pathname: '/signup'})
+    else Router.push({ pathname: '/login-password'})
   };
 
   const handleLogin = async () => {

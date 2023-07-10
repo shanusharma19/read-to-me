@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import Header from "../components/Header.js";
 import Link from "next/link";
-import { useRouter } from "next/router";
+import Router from "next/router";
 import HelpIcon from "@/components/HelpIcon.js";
 import BottomNav from "@/components/BottomNav.js";
 // import setMedalComponent from './learningChannel.js'
 
-export default function myPlans() {
-  const router = useRouter();
+export default function MyPlans() {
   return (
     <>
       <div
@@ -21,7 +20,7 @@ export default function myPlans() {
         <Header />
         <span
           className="back-arrow-holder"
-          onClick={() => router.push("/learningChannel")}
+          onClick={() => Router.push("/learningChannel")}
         >
           <img src="https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/back-icon.svg" />
         </span>

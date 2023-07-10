@@ -20,7 +20,7 @@ import DashboardContent from "@/components/DashboardContent.js";
 import Home from "@/components/Home.js";
 import UDISEmodal from "@/components/UDISEmodal.js";
 
-export default function leaderboard() {
+export default function Leaderboard() {
   const [Toggle, setToggle] = useState(false);
   const [User, setUser] = useState(null)
   const dispatch = useDispatch();
