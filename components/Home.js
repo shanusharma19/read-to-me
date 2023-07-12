@@ -3,11 +3,13 @@ import Lottie from "lottie-react";
 import Trophy from "../animations/trophy.json";
 import Link from "next/link";
 import Input from "./Input";
+import  secureLocalStorage  from  "react-secure-storage";
+
 const Home = () => {
   var [User, setUser] = useState(null);
 
   useEffect(() => {
-    var user = JSON.parse(localStorage.getItem("user"));
+    var user = JSON.parse(secureLocalStorage.getItem("user"));
     if (user) {
       setUser(user);
     }
@@ -41,7 +43,7 @@ const Home = () => {
                           board: e.target.value,
                         },
                       };
-                      localStorage.setItem("user", JSON.stringify(newState));
+                      secureLocalStorage.setItem("user", JSON.stringify(newState));
                       return newState;
                     });
                   }}
@@ -118,7 +120,7 @@ const Home = () => {
                           grade: e.target.value,
                         },
                       };
-                      localStorage.setItem("user", JSON.stringify(newState));
+                      secureLocalStorage.setItem("user", JSON.stringify(newState));
                       return newState;
                     });
                   }}

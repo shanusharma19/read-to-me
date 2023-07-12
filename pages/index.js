@@ -2,12 +2,13 @@ import React, { useState, useEffect} from "react";
 import Head from "next/head";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import  secureLocalStorage  from  "react-secure-storage";
 
 export default function Home() {
   const { push } = useRouter();
   const [check, setcheck] = useState(false);
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("user")) !== null) {
+    if (JSON.parse(secureLocalStorage.getItem("user")) !== null) {
       push("/learningChannel");
     }
     else {

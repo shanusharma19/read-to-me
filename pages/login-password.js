@@ -5,6 +5,7 @@ import Modal from "../components/Modal.js";
 import encryptPasswordField from "../utils/Encryption.js";
 import generateString from "../utils/generate.js";
 import Router from "next/router";
+import  secureLocalStorage  from  "react-secure-storage";
 
 export default function LoginPassword() {
   const [Filter, setFilter] = useState("brightness(100%)");
@@ -14,7 +15,7 @@ export default function LoginPassword() {
   const [errorMsg, setErrorMsg] = useState("");
   const [check, setcheck] = useState(false);
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("user")) !== null) {
+    if (JSON.parse(secureLocalStorage.getItem("user")) !== null) {
       Router.push({ pathname: '/learningChannel'})
     } else {
       setcheck((prev) => {
@@ -58,13 +59,449 @@ export default function LoginPassword() {
       }),
     };
     const res = await fetch("/checkLogin", options);
-    const data = await res.json();
-
-    if ("errorMsg" in data) Router.push({ pathname: '/login-password'})
-    else {
-      localStorage.setItem("user", JSON.stringify(data));
-      Router.push({ pathname: '/learningChannel'})
+    // const data = await res.json();
+    const data = {
+      "expiryDate": "2025-11-29 23:59:00",
+      "userInfo": {
+        "country": "INDIA",
+        "boardType": "G",
+        "partnerCode": "",
+        "subject": "English",
+        "shownPopupForContestId": "268",
+        "profileImage": "14.svg",
+        "udise": "TESTMHBUDISE",
+        "lastTokenCheckDate": "2023-05-19",
+        "grade": "Grade 6",
+        "district": "PUNE",
+        "onSignUpActivityPopUp": "N",
+        "state": "MAHARASHTRA",
+        "schoolName": "TESTPUNESCHOOL",
+        "board": "Puducherry Board"
+      },
+      "productId": 1826,
+      "APP_ROLL_OUT_STATUS": "Y",
+      "successMsg": {
+        "msgKey": "success.data-msg-loginSuccess",
+        "success.data-msg-loginSuccess": "You have successfully logged in."
+      },
+      "grades": [
+        "Grade 1",
+        "Grade 2",
+        "Grade 3",
+        "Grade 4",
+        "Grade 5",
+        "Grade 6",
+        "Grade 7",
+        "Grade 8",
+        "Grade 9",
+        "Grade 10",
+        "Grade 11",
+        "Grade 12"
+      ],
+      "locale": "en_US",
+      "user": {
+        "userSeqId": 887414,
+        "userLoginName": "2232564924",
+        "usgpSeqId": 520,
+        "userFullName": "testaccounteightteen",
+        "userFirstName": "testaccounteightteen",
+        "userMailId": "akashtadurwar+testleader19@englishhelper.com",
+        "userDefaultLanguageId": 1,
+        "userPasswordExpiryDate": "Dec 15, 2022 03:52:22 PM",
+        "userIdLocked": "N",
+        "userUpdateCount": 0,
+        "passwordResetFlag": 0,
+        "failedLoginCount": 0,
+        "userCountry": "India",
+        "userPhone": "2232564924",
+        "createdDate": "Nov 30, 2022 03:52:22 PM",
+        "isRegisteredUser": "Y",
+        "isNewUser": "Y",
+        "isInternal": "N",
+        "course": "Grade 6",
+        "profileUpdateStatus": "N",
+        "emailVerificationCode": "oY5NhliTRlp+15tvl9o2zCoBTVUEAUYeOrUoji5jL+DdpLHD0TjjvwnEjtAnzuDEPr4XN9+Bgn7Nc26+Vq4Kmw==",
+        "isEmailValidate": "N",
+        "isPremiumUser": "Y",
+        "subscriptionDate": "Nov 30, 2022 03:52:26 PM",
+        "lastOrderId": 1022602,
+        "registrationCountryCode": "IN",
+        "isdCode": "+91"
+      },
+      "orderSubscriptionAssociations": [
+        {
+          "orderSubscriptionId": 31600629,
+          "orderId": 1022602,
+          "subscriptionId": 6489,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600630,
+          "orderId": 1022602,
+          "subscriptionId": 6490,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600631,
+          "orderId": 1022602,
+          "subscriptionId": 6491,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600632,
+          "orderId": 1022602,
+          "subscriptionId": 6492,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600633,
+          "orderId": 1022602,
+          "subscriptionId": 6493,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600634,
+          "orderId": 1022602,
+          "subscriptionId": 6494,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600635,
+          "orderId": 1022602,
+          "subscriptionId": 6495,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600636,
+          "orderId": 1022602,
+          "subscriptionId": 6496,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600637,
+          "orderId": 1022602,
+          "subscriptionId": 6497,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600638,
+          "orderId": 1022602,
+          "subscriptionId": 6498,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600639,
+          "orderId": 1022602,
+          "subscriptionId": 6499,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600640,
+          "orderId": 1022602,
+          "subscriptionId": 6500,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600641,
+          "orderId": 1022602,
+          "subscriptionId": 6501,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600642,
+          "orderId": 1022602,
+          "subscriptionId": 6502,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600643,
+          "orderId": 1022602,
+          "subscriptionId": 6503,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600644,
+          "orderId": 1022602,
+          "subscriptionId": 6504,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600645,
+          "orderId": 1022602,
+          "subscriptionId": 6505,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600646,
+          "orderId": 1022602,
+          "subscriptionId": 6506,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600647,
+          "orderId": 1022602,
+          "subscriptionId": 6507,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600648,
+          "orderId": 1022602,
+          "subscriptionId": 6508,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600649,
+          "orderId": 1022602,
+          "subscriptionId": 6509,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600650,
+          "orderId": 1022602,
+          "subscriptionId": 6510,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600651,
+          "orderId": 1022602,
+          "subscriptionId": 6511,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600652,
+          "orderId": 1022602,
+          "subscriptionId": 6512,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600653,
+          "orderId": 1022602,
+          "subscriptionId": 6513,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600654,
+          "orderId": 1022602,
+          "subscriptionId": 6514,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600655,
+          "orderId": 1022602,
+          "subscriptionId": 6515,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600656,
+          "orderId": 1022602,
+          "subscriptionId": 6516,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600657,
+          "orderId": 1022602,
+          "subscriptionId": 6517,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600658,
+          "orderId": 1022602,
+          "subscriptionId": 6518,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600659,
+          "orderId": 1022602,
+          "subscriptionId": 6519,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600660,
+          "orderId": 1022602,
+          "subscriptionId": 6520,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600661,
+          "orderId": 1022602,
+          "subscriptionId": 6552,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600662,
+          "orderId": 1022602,
+          "subscriptionId": 6553,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600663,
+          "orderId": 1022602,
+          "subscriptionId": 6555,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600664,
+          "orderId": 1022602,
+          "subscriptionId": 6556,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600665,
+          "orderId": 1022602,
+          "subscriptionId": 6560,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600666,
+          "orderId": 1022602,
+          "subscriptionId": 6572,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600667,
+          "orderId": 1022602,
+          "subscriptionId": 6573,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600668,
+          "orderId": 1022602,
+          "subscriptionId": 6574,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600669,
+          "orderId": 1022602,
+          "subscriptionId": 6575,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600670,
+          "orderId": 1022602,
+          "subscriptionId": 6595,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600671,
+          "orderId": 1022602,
+          "subscriptionId": 6596,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600672,
+          "orderId": 1022602,
+          "subscriptionId": 6597,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600673,
+          "orderId": 1022602,
+          "subscriptionId": 6598,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600674,
+          "orderId": 1022602,
+          "subscriptionId": 6599,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600675,
+          "orderId": 1022602,
+          "subscriptionId": 6600,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600676,
+          "orderId": 1022602,
+          "subscriptionId": 6601,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600677,
+          "orderId": 1022602,
+          "subscriptionId": 6602,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600678,
+          "orderId": 1022602,
+          "subscriptionId": 6603,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600679,
+          "orderId": 1022602,
+          "subscriptionId": 6606,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600680,
+          "orderId": 1022602,
+          "subscriptionId": 6669,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600681,
+          "orderId": 1022602,
+          "subscriptionId": 6670,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600682,
+          "orderId": 1022602,
+          "subscriptionId": 6671,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600683,
+          "orderId": 1022602,
+          "subscriptionId": 6672,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600684,
+          "orderId": 1022602,
+          "subscriptionId": 6673,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600685,
+          "orderId": 1022602,
+          "subscriptionId": 6674,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600686,
+          "orderId": 1022602,
+          "subscriptionId": 6675,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600687,
+          "orderId": 1022602,
+          "subscriptionId": 6695,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600688,
+          "orderId": 1022602,
+          "subscriptionId": 7249,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        },
+        {
+          "orderSubscriptionId": 31600689,
+          "orderId": 1022602,
+          "subscriptionId": 7250,
+          "validUpto": "Nov 29, 2025 11:59:00 PM"
+        }
+      ]
     }
+    // if ("errorMsg" in data) Router.push({ pathname: '/login-password'})
+    // else {
+      secureLocalStorage.setItem("user", JSON.stringify(data));
+      Router.push({ pathname: '/learningChannel'})
+    // }
   };
 
   const handleLogin = async () => {

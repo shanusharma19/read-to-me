@@ -19,6 +19,7 @@ import {
 import DashboardContent from "@/components/DashboardContent.js";
 import Home from "@/components/Home.js";
 import UDISEmodal from "@/components/UDISEmodal.js";
+import  secureLocalStorage  from  "react-secure-storage";
 
 export default function Leaderboard() {
   const [Toggle, setToggle] = useState(false);
@@ -26,7 +27,7 @@ export default function Leaderboard() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    var user = JSON.parse(localStorage.getItem('user'));
+    var user = JSON.parse(secureLocalStorage.getItem('user'));
     if(user){
       setUser(user);
       dispatch(

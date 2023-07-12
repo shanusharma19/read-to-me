@@ -11,12 +11,13 @@ import {
   FILTER,
 } from "../actions/learningPageActions.js";
 import LoginHeader from "./LoginHeader";
+import  secureLocalStorage  from  "react-secure-storage";
 
 const DashboardUserDetails = () => {
   const [User, setUser] = useState(null);
 
   useEffect(() => {
-    var user = JSON.parse(localStorage.getItem("user"));
+    var user = JSON.parse(secureLocalStorage.getItem("user"));
     if (user) {
       setUser(user);
       dispatch(

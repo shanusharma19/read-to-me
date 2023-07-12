@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import useSWR from "swr";
 import Link from "next/link";
-import Router from "next/navigation";
+import Router from "next/router.js";
 import { validateEmail, phonenumber } from "../utils/validate.js";
 import Header from "../components/Header.js";
+import  secureLocalStorage  from  "react-secure-storage";
 
 export default function Login() {
   const [Phone, setPhone] = useState("");
@@ -12,7 +13,7 @@ export default function Login() {
   const [errorMsg, setErrorMsg] = useState("");
   const [check, setcheck] = useState(false);
   useEffect(() => {
-    if (JSON.parse(localStorage.getItem("user")) !== null) {
+    if (JSON.parse(secureLocalStorage.getItem("user")) !== null) {
       Router.push({ pathname: '/learningChannel'})
     }
     else {

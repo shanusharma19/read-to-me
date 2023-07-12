@@ -10,11 +10,12 @@ import BottomNav from "../components/BottomNav.js";
 import Home from "../components/Home.js";
 import { useDispatch } from "react-redux";
 import { PROFILE } from "../actions/learningPageActions.js";
+import  secureLocalStorage  from  "react-secure-storage";
 
 export default function LearningChannel() {
 
   useEffect(() => {
-    var user = JSON.parse(localStorage.getItem("user"));
+    var user = JSON.parse(secureLocalStorage.getItem("user"));
     if (user) {
       let img = "https://assets.englishhelper.com/righttoread/v8.79.38.20230215/assets/images/leaderboard/profilePic/" + user.userInfo.profileImage;
       dispatch(PROFILE(img));

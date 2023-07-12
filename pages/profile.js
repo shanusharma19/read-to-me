@@ -3,12 +3,13 @@ import { useSelector } from "react-redux";
 import Link from "next/link";
 import Header from "@/components/Header.js";
 import Router from "next/router.js";
+import  secureLocalStorage  from  "react-secure-storage";
 
 const Profile = () => {
     const [User, setUser] = useState(null)
 
     useEffect(() => {
-      var user = JSON.parse(localStorage.getItem('user'));
+      var user = JSON.parse(secureLocalStorage.getItem('user'));
       if(user){
         setUser(user);
       }

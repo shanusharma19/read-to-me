@@ -4,13 +4,14 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Avatar from "../components/Avatar.js";
 import Notification from "../components/Notification.js";
+import  secureLocalStorage  from  "react-secure-storage";
 
 const Medals = () => {
   const { notify, toggle } = useSelector((state) => state.learningPage);
   const [User, setUser] = useState(null)
 
   useEffect(() => {
-    var user = JSON.parse(localStorage.getItem('user'));
+    var user = JSON.parse(secureLocalStorage.getItem('user'));
     if(user){
       setUser(user);
     } 

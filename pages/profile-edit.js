@@ -2,19 +2,20 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import Header from "@/components/Header.js";
 import Router from "next/router.js";
+import  secureLocalStorage  from  "react-secure-storage";
 
 const ProfileEdit = () => {
   const [User, setUser] = useState(null);
 
   useEffect(() => {
-    var user = JSON.parse(localStorage.getItem("user"));
+    var user = JSON.parse(secureLocalStorage.getItem("user"));
     if (user) {
       setUser(user);
     }
   }, []);
 
   const save = () => {
-    localStorage.setItem("user", JSON.stringify(User));
+    secureLocalStorage.setItem("user", JSON.stringify(User));
   }
 
   return (

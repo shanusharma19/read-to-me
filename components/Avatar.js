@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
 import {useDispatch} from 'react-redux';
 import {PROFILE, TOGGLE, FILTER} from '../actions/learningPageActions.js'
+import  secureLocalStorage  from  "react-secure-storage";
 
 const Avatar = () => {
 
   const [User, setUser] = useState(null)
 
   useEffect(() => {
-    var user = JSON.parse(localStorage.getItem('user'));
+    var user = JSON.parse(secureLocalStorage.getItem('user'));
     if(user){
       setUser(user);
     } 
@@ -152,7 +153,7 @@ const Avatar = () => {
                           profileImage: Tick.split('profilePic/')[1],
                         },
                       };
-                      localStorage.setItem("user", JSON.stringify(newState));
+                      secureLocalStorage.setItem("user", JSON.stringify(newState));
                       return newState;
                     });
                     Tick && dispatch(PROFILE(Tick))

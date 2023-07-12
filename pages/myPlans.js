@@ -4,7 +4,6 @@ import Link from "next/link";
 import Router from "next/router";
 import HelpIcon from "@/components/HelpIcon.js";
 import BottomNav from "@/components/BottomNav.js";
-// import setMedalComponent from './learningChannel.js'
 
 export default function MyPlans() {
   return (
